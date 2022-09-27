@@ -21,9 +21,11 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
+    let reversedString = ""; // create new variable reversedString that will store the reversed value of the parameter input
+    for (let i = input.length - 1; i >= 0; i--) { // create for loop that iterates through the parameter input in descending order starting at the last character of the string
+      reversedString += input[i]; // concact reversedString with the character each iteration in the for loop 
+    }
+    return reversedString; // return reversedString
     
     // YOUR CODE GOES ABOVE HERE //
 }
