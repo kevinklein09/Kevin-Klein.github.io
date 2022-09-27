@@ -25,7 +25,7 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+    return string.toLowerCase();// return original string lowercased using .toLowerCase()
 
 
     // YOUR CODE ABOVE HERE //
@@ -36,7 +36,7 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+    return string.toUpperCase();// return original string uppercased using .toUpperCase()
 
 
     // YOUR CODE ABOVE HERE //
@@ -57,8 +57,8 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+    return string.replace(/\s+/g, '-').toLowerCase();// use .replace() to replace the spaces in string with dashes and use .toLowerCase() to return original string with dashes as lowercased 
+  
 
     // YOUR CODE ABOVE HERE //
 }
@@ -77,7 +77,12 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) { // must be case insensitive
     // YOUR CODE BELOW HERE // 
-
+    // create an if statement to check if the string begins with the char character by using the .startsWith() method. Use the .toLowerCase() method on both string and char to make function case insensitive.
+    if (string.toLowerCase().startsWith(char.toLowerCase()) === true) {
+        return true; // return true 
+    } else {
+        return false; // return false
+    }
     
 
     // YOUR CODE ABOVE HERE //
@@ -97,7 +102,12 @@ function beginsWith(string, char) { // must be case insensitive
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+        // create an if statement to check if the string begins with the char character by using the .endsWith() method. Use the .toLowerCase() method on both string and char to make function case insensitive.
+    if (string.toLowerCase().endsWith(char.toLowerCase()) === true) {
+        return true; // return true 
+    } else {
+        return false; // return false
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -110,7 +120,7 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringOne + stringTwo;
 
 
     // YOUR CODE ABOVE HERE //
@@ -128,8 +138,8 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
-
+    var args = Array.from(arguments); // create a variable with an array named args that pulls out the arguments passed to the function 
+    return args.join(''); // return args conjoined by using the .join() method
 
     // YOUR CODE ABOVE HERE //
 }
@@ -145,7 +155,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    if (stringOne.length > stringTwo.length) { // create an if statement that determines if stringOne is longer in length than stringTwo by using the .length property
+        return stringOne; // return stringOne if if statement is true
+    } else {
+        return stringTwo; // return stringTwo if if statement is false
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -160,7 +174,13 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    if (stringOne > stringTwo) { // create an if statement that uses a comparison operator to determine if stringOne is higher in alphabetical order than stringTwo
+        return -1; // if the if statement is true, return -1
+    } else if (stringTwo > stringOne) { // create an else if statement that uses a comparison operator to determine if stringTwo is higher in alphabetical order than stringOne
+        return 1; // if the else if statement is true, return 1
+    } else {
+        return 0; // create an else statement that returns 0
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -176,6 +196,13 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    if (stringOne > stringTwo) { // create an if statement that uses a comparison operator to determine if stringOne is lower in alphabetical order than stringTwo
+        return 1; // if the if statement is true, return 1
+    } else if (stringTwo > stringOne) { // create an else if statement that uses a comparison operator to determine if stringTwo is lower in alphabetical order than stringOne
+        return -1; // if the else if statement is true, return -1
+    } else {
+        return 0; // create an else statement that returns 0
+    }
 
 
 
