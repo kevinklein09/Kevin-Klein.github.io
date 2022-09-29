@@ -81,12 +81,18 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
+
+    var output = []; // create an empty array
+    for (var i = 0; i < strings.length; i ++) { // create a for loop to iterate through strings array
+      output.push(modify(strings[i])); // pass each string to the modify function and push each to output array
+    }
+    return output; // return output
+  }
     
     
     
     // YOUR CODE ABOVE HERE //
-}
+
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 

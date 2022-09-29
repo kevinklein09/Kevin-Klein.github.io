@@ -15,7 +15,7 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     // is there something available that already performs this task? google it
-    
+    return Array.isArray(value); // use the Array.isArray() method to determine if the passed value is an array
     
     
     // YOUR CODE ABOVE HERE //
@@ -31,7 +31,11 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (typeOf value === 'object' && !Array.isArray(value) && value !== 'null') {
+    }
+
+
+
     // determine typeof value is 'object' AND value is not an array AND value is not null
     // AND value is not an instance of the date object (google how something is instance of date object)
     
