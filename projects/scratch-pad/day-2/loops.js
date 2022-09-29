@@ -41,7 +41,7 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-    var keys = []; // create an array 
+    var keys = []; // create an empty array 
   for (var key in object) { // iterate through object with for in loop
     keys.push(key); // push current key into keys array
   }
@@ -61,22 +61,19 @@ function printObjectKeys(object) {
   
   
   
-  // YOUR CODE ABOVE HERE //
+  // YOUR CODE ABOVE HERE //1
 }
 
 /** 
  * Given an input Object, return an Array containing the Object's values.
  */
-function getObjectValues(object) {
+ function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-    var newArray = []; // create an array that will store the object's values
-  for (var key in object) {
-    newArray.push(object[key]); // assign the key values to newArray
-    return newArray; // return newArray
+    var keyValues = []; // create an empty array 
+  for (var key in object) { // iterate through object with for in loop
+    keyValues.push(object[key]); // push values into array with .push method and bracket notation
   }
-  
-  
-  
+  return keyValues; // return array
   // YOUR CODE ABOVE HERE //
 }
 
@@ -100,11 +97,13 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-let count = 0;
-for (let key in object) {
-  ++count;
+let count = 0; // create count variable to store values
+for (let key in object) { // create for loop to iterate through object properties
+  ++count; // increment count
 }
-console.log(count);
+return count; // return count
+
+console.log(count); // console.log count
   
   
   
@@ -117,9 +116,15 @@ console.log(count);
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  // push object values into an array
-  
-  // loop over array backwards and print each value
+
+  var array = []; // create empty array
+  for (var key in object) { // create for in loop to iterate through object properties
+    array.push(object[key]); // push object values with .push() method and bracket notation into the array
+  }
+  for (var i = array.length - 1; i >= 0; i--) { // create for loop to iterate through array index in reverse
+    console.log(array[i]); // log array values to console
+  }
+ 
   
   // YOUR CODE ABOVE HERE //
 }

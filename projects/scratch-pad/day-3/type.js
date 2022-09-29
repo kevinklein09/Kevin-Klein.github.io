@@ -14,7 +14,7 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    // is there something available that already performs this task? google it
     
     
     
@@ -32,8 +32,8 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    // determine typeof value is 'object' AND value is not an array AND value is not null
+    // AND value is not an instance of the date object (google how something is instance of date object)
     
     // YOUR CODE ABOVE HERE //
 }

@@ -14,7 +14,11 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
+    // return a function that tests whether a value is greater than the base paramter
+    return function(value) {
+        return value > base;
+
+    }
     
     
     // YOUR CODE ABOVE HERE //
