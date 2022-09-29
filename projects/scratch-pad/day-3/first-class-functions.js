@@ -15,8 +15,8 @@ function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
     // return a function that tests whether a value is greater than the base paramter
-    return function(value) {
-        return value > base;
+    return function(value) { // return a function with input value
+        return value > base; // return boolean value based on whether given value is greater than base
 
     }
     
@@ -31,7 +31,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function (value) { // return a function with input value
+        return value < base; // return boolean value based on whether given value is less than base
+    }
     
     
     
@@ -45,7 +47,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function (string) { // return a new function with input string
+        return string.toLowerCase().startsWith(startsWith.toLowerCase()); // return boolean value based on whether string starts with startsWith char. Use toLowerCase() method on both string and startsWith inputs.
+    }
     
     
     
@@ -59,7 +63,9 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function (string) { // return a new function with input string 
+        return string.toLowerCase().endsWith(endsWith.toLowerCase()); // return boolean value based on whether string end with endsWith char. Use toLowerCase() method on both string and endsWith inputs.
+    }
     
     
     
