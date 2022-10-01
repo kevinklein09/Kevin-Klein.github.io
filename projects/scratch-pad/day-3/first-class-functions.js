@@ -105,7 +105,13 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
+    for (var i = 0; i < strings.length; i++) { // create a for loop that iterates through the index of the input strings
+        if(test(strings[i]) === false) { // create an if statement to pass each index iteration of the strings array into the test function to determine if each iteration equals a false boolean value
+            return false; // return false if if statement is true
+        } 
+    }
+    return true; // return true otherwise
+
     
     
     

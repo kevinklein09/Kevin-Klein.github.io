@@ -35,21 +35,48 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    var obj = { // create new object and assign each property to each parameter 
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
 
+    return obj; // return obj
 } 
 
 
-function makeContactList() {
+function makeContactList() { // FACTORY FUNCTION but  different
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact) {
+            return contacts.push(contact);
+        },
+        findContact: function(fullName) {
+            for (var i = 0; i < contacts.length; i++) {
+                if(fullName === contacts[i]["nameFirst"] + " " + contacts[i]['nameLast']) {
+                    return contacts[i];
+                }
+            }
+        },
+        removeContact: function(contact) {
+            for (var i = 0; i < contacts.length; i++) {
+                if(contacts[i] === contact) {
+                    return contacts.splice(i, 1);
+                }
+            }
+        },
+        printAllContactNames: function () {
+            
         }
+
     }
 }
 
