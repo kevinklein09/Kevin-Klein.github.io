@@ -31,14 +31,13 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if (typeof value === 'object') {
-        if (Array.isArray(value) === true || value !== 'null' || value instanceof Date) {
-          return false;
-        } 
-        return true;
+    if (typeof value === 'object' && !Array.isArray(value) === true && value !== null) { //create an if statement to determine if value datatype is an object AND not an array AND not null
+      if (value instanceof Date) { //create a nested if statement to determine if value is an instance of a date using instanceof operator 
+        return false // if nested if statement is true, return false
       }
-        else {
-          return false;
+        return true; // if first if statement is true, return true
+        }  else { // create an else/default statement to catch all other datatypes 
+          return false; //return false
         }
 
 
@@ -57,14 +56,13 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    if (typeof value === 'object' || Array.isArray(value) === true) {
-        if (value === 'null' || value instanceof Date) {
-          return false;
+    if (typeof value === 'object' || Array.isArray(value) === true) { //create an if statement to determine if value is an object OR an array
+        if (value === null || value instanceof Date) { //create a nested if statement to determine if value is null OR an instance of a date
+          return false; //return false if nested if statement is true
         } 
-          return true;
-      }
-        else {
-          return false;
+          return true; //return true if first if statement is true
+      } else { //create an else/default statement to catch all other potential datatypes of input value
+          return false; //return false
         }
     
     
@@ -93,7 +91,15 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(Array.isArray(value)) { // create an if statement to determine if value is an array
+      return 'array'; // if true, return 'array'
+    } else if(value === null) { //create an if/else statement to determine if value is null
+      return 'null'; //if true, return 'null'
+    } else if (value instanceof Date) { // create an if/else statement to determine if value is an instance of a date
+      return 'date'; //if true, return 'date'
+    } else { // create an else/default statement to catch all other datatypes
+      return typeof value; // return datatype with typeof
+    }
     
     
     

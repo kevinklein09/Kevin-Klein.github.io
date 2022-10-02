@@ -74,6 +74,13 @@ function makeContactList() { // FACTORY FUNCTION but  different
             }
         },
         printAllContactNames: function () {
+            var myContacts = "";
+            for (var i = 0; i < contacts.length; i++) {
+                myContacts = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + "\n";   
+            }
+           
+            return myContacts;
+            
             
         }
 
