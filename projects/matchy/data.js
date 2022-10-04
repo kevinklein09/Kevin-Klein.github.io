@@ -11,7 +11,7 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-let animal = {};
+var animal = {};
 animal.species = "dog";
 animal["name"] = "Trunks";
 animal.noises = [];
@@ -22,13 +22,20 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+var noises = [];
+noises[0] = "woof";
+noises.push("glurgle");
+noises.unshift("grrr");
+noises[noises.length] = "ruff";
+console.log(noises.length);
+console.log(noises[noises.length - 1]);
+console.log(noises);
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+animal.noises = noises;
+animal.noises.push("floop");
+console.log(animal);
 
 
 /* *******************************************************************
@@ -53,7 +60,29 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animals = [];
+animals.push(animal);
+console.log(animals);
+var duck = { 
+  species: 'duck', 
+  name: 'Jerome', 
+  noises: ['quack', 'honk', 'sneeze', 'woosh'] 
+};
 
+
+var cat = { 
+  species: 'cat', 
+  name: 'Blorp', 
+  noises: ['meow', 'honk', 'achoo'] 
+};
+
+var turtle = { 
+  species: 'turtle', 
+  name: 'Jeffery', 
+  noises: ['yuum', 'erf', 'kablam'] 
+};
+animals.push(duck, cat, turtle);
+console.log(animals, animals.length);
 
 
 //////////////////////////////////////////////////////////////////////
