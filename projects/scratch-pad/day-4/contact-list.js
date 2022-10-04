@@ -21,8 +21,8 @@
  *         undefined if the fullName does not match any contacts in the list.
  *      4. removeContact(contact): takes a contact object to be removed from 
  *         the contact-list.
- *      5. add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 
- *         return a String formated with all the full-names of the separated 
+ *      5. add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function 
+ *         should return a String formated with all the full-names of the separated 
  *         with a line-break, like so:
  *          
  *         myContacts.printAllContactNames(); // => Max Gaudin
@@ -53,16 +53,16 @@ function makeContactList() { // FACTORY FUNCTION but  different
     
     return {
         // we implemented the length api for you //
-        length: function() {
-            return contacts.length;
+        length: function() { // create a length function method that determines the length of contacts
+            return contacts.length; // return the length of contacts
         },
-        addContact: function(contact) {
-            return contacts.push(contact);
+        addContact: function(contact) { //create an addContact function that takes one input, contact, and adds it the contact list
+            return contacts.push(contact); // return contact input to the contacts array
         },
-        findContact: function(fullName) {
-            for (var i = 0; i < contacts.length; i++) {
-                if(fullName === contacts[i]["nameFirst"] + " " + contacts[i]['nameLast']) {
-                    return contacts[i];
+        findContact: function(fullName) { //create a findContact function that takes one input, fullName
+            for (var i = 0; i < contacts.length; i++) { //create an for loop to iterate through contacts
+                if(fullName === contacts[i].nameFirst + " " + contacts[i].nameLast) { //create an if statement that combines nameFirst and nameLast into a string and determines if it is equal to the input fullName
+                    return contacts[i]; // if true, return each iteration of contacts
                 }
             }
         },
@@ -76,9 +76,8 @@ function makeContactList() { // FACTORY FUNCTION but  different
         printAllContactNames: function () {
             var myContacts = "";
             for (var i = 0; i < contacts.length; i++) {
-                myContacts = contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + "\n";   
+                myContacts = contacts[i].nameFirst + ' ' + contacts[i].nameLast + "\n";   
             }
-           
             return myContacts;
             
             
