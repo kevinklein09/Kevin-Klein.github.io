@@ -30,20 +30,42 @@ function search(array, string) {
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function replace(array, string, object) {
-    
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].name === string) {
+            return array[i] = object;
+        }
+
+        }
+        return null;
 }
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function remove(array, string) {
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].name === string) {
+            return array.splice(i, 1);
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function add(array, object) {
+    if(object.name.length > 0 && object.species.length > 0) {
+        for(var i = 0; i < array.length; i++) {
+            if(array[i].name !== object.name) {
+                return array.push(object);
+            } else {
+                return null;
+            }
+        }
+    }
+}
 
 
 /**
