@@ -42,9 +42,9 @@ console.log(animal);
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
- *
+ *With bracket and dot notation
  * 2. What are the different ways of accessing elements on arrays?
- *
+ *With bracket notation, .shift(), .unshift(), .pop(), and .push()
  * *******************************************************************
  */
 
@@ -89,7 +89,19 @@ console.log(animals, animals.length);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// I chose an array for the list of friends because arrays are good for storing simple lists
+var friends = [];
+function getRandom(array) {
+  return randomIndex = Math.floor(Math.random() * array.length);
+  
+}
+friends.push(animals[getRandom(animals)].name);
 
+console.log(friends);
+
+animals[0]["friends"] = friends;
+
+console.log(animals);
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
