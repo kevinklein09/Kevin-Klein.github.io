@@ -3,7 +3,11 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    var newArray = [];
+    for (var key in object) {
+        newArray.push(object[key])
+    }
+    return newArray;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +15,12 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    var newString = "";
+    for(var key in object) {
+        newString += key + " ";
+    }
+    var result = newString.slice(0, -1);
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,23 +28,37 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
-}
+    var newString = "";
+    for(var key in object) {
+     if(typeof object[key] === "string") {
+         newString += object[key] + " ";
+     }
+     var result = newString.slice(0, -1);
+    } 
+    return result;
+ }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
-}
+        if(Array.isArray(collection)) {
+            return "array";
+        } else {
+            return 'object';
+        }
+    }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    var firstChar = string.charAt(0).toUpperCase();
+    string = string.slice(1, string.length);
+    return firstChar + string;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +66,13 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    var myArray = string.split(" ");
+    var myString = "";
+    for(var i = 0; i < myArray.length; i++) {
+        var firstChar = myArray[i].charAt(0).toUpperCase();
+        var newWord = myArray[i].slice(1, myArray[i].length);
+        var finalWord = firstChar + newWord;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
