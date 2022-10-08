@@ -49,7 +49,7 @@ function makeContactList() { // FACTORY FUNCTION but  different
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts = [];
+    var contacts = []; //create a variable contacts that is assigned the value of an empty array
     
     return {
         // we implemented the length api for you //
@@ -57,32 +57,32 @@ function makeContactList() { // FACTORY FUNCTION but  different
             return contacts.length; // return the length of contacts
         },
         addContact: function(contact) { //create an addContact function that takes one input, contact, and adds it the contact list
-            return contacts.push(contact); // return contact input to the contacts array
+            return contacts.push(contact); // return contact input to the contacts array using .push method
         },
         findContact: function(fullName) { //create a findContact function that takes one input, fullName
-            for (var i = 0; i < contacts.length; i++) { //create an for loop to iterate through contacts
+            for (var i = 0; i < contacts.length; i++) { //create a for loop to iterate through contacts
                 if(fullName === contacts[i].nameFirst + " " + contacts[i].nameLast) { //create an if statement that combines nameFirst and nameLast into a string and determines if it is equal to the input fullName
                     return contacts[i]; // if true, return each iteration of contacts
                 }
             }
         },
-        removeContact: function(contact) {
-            for (var i = 0; i < contacts.length; i++) {
-                if(contacts[i] === contact) {
-                    return contacts.splice(i, 1);
+        removeContact: function(contact) { //create a removeContact function that takes one input, contact
+            for (var i = 0; i < contacts.length; i++) { //create a for loop to iterate through contacts
+                if(contacts[i] === contact) { //create an if statement that determines if each iteration of contacts is equal to the input contact
+                    return contacts.splice(i, 1); //if true, update and return contacts by removing the contact from the contacts array by using the splice method
                 }
             }
         },
-        printAllContactNames: function () {
-            var myContacts = "";
-            for (var i = 0; i < contacts.length; i++) {
-                if(i === contacts.length - 1) {
-                    myContacts = myContacts + contacts[i].nameFirst + ' ' + contacts[i].nameLast;
-                } else {
-                myContacts = myContacts + contacts[i].nameFirst + ' ' + contacts[i].nameLast + "\n"; 
+        printAllContactNames: function () { //create a printAllContactNames function that takes no inputs
+            var myContacts = ""; //create a variable myContacts and assign it to an empty string
+            for (var i = 0; i < contacts.length; i++) { //create a for loop to iterate through contacts
+                if(i === contacts.length - 1) { //create an if statement to catch the last iteration of the for loop. Use the strict equality operator to see if i is equal to the last contact index in the conacts array
+                    myContacts = myContacts + contacts[i].nameFirst + ' ' + contacts[i].nameLast; //if true, assign the myContacts variable to a full name of the contact
+                } else { // use an else statement to otherwise...
+                myContacts = myContacts + contacts[i].nameFirst + ' ' + contacts[i].nameLast + "\n"; //assign myContacts variable to each contact's full name with a break "\n" in the string
                 }
             }
-            return myContacts;
+            return myContacts; //return myContacts
             
             
         }

@@ -36,7 +36,7 @@ function replace(array, string, object) {
         }
 
         }
-        return null;
+        return null; //Otherwise return null
 }
 
 
@@ -61,7 +61,7 @@ function add(array, object) {
             if(array[i].name !== object.name) { //create an if statement to determine if the array contains the input object name already by using the strictly not equal operator
                 return array.push(object); //if true, push the object into the array
             } else { //if false, return null
-                return null;
+                return null; //otherwise return null
             }
         }
     }
