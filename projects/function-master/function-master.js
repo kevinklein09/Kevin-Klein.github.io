@@ -82,7 +82,7 @@ function capitalizeAllWords(string) { //create a function capitalizeAllWords tha
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function welcomeMessage(object) {
+function welcomeMessage(object) { //create a function welcomeMessage that takes one input, object
     return "Welcome " + object.name.charAt(0).toUpperCase() + object.name.slice(1, object.name.length) + "!"; //return object.name capitalized at the first character inside of given string
     
 }
@@ -92,6 +92,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    //return object.name capitalized at the first character and object.species capitalized at the first character outside of given string
     return object.name.charAt(0).toUpperCase() + object.name.slice(1, object.name.length) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1, object.species.length);
 }
 
@@ -99,16 +100,16 @@ function profileInfo(object) {
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function maybeNoises(object) {
+function maybeNoises(object) { //create a function, maybeNoises with one input, object
 
-    if(object.hasOwnProperty("noises")) {
-        if(object.noises.length === 0) {
-            return "there are no noises";
-        } else {
-            return object.noises.join(" ");
+    if(object.hasOwnProperty("noises")) { //create an if statement to determine if the object has the property "noises"
+        if(object.noises.length === 0) { //create a nested if statement to determine if the length of object noises property is strictly equal to 0
+            return "there are no noises"; //if nested if statement is true, return given string
+        } else { //create else statement 
+            return object.noises.join(" "); //return object property noises as a string separated by a space
         }
-    } else {
-        return "there are no noises";
+    } else { //create else statement
+        return "there are no noises"; //return given string
     }
     
 }
@@ -117,22 +118,22 @@ function maybeNoises(object) {
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function hasWord(string, word) {
-    var myArray = string.split(" ");
-    for(var i = 0; i < string.length; i++) {
-        if(myArray[i] === word) {
-            return true;
+function hasWord(string, word) { //create a fuction hasWord that takes two inputs, string and word
+    var myArray = string.split(" "); //create variable myArray and assign it the value of the string input as an array, using the .split method
+    for(var i = 0; i < string.length; i++) { //create a for loop to iterate through the string
+        if(myArray[i] === word) { //create an if statement to determine if each iteration of myArray is stricly equal to input word
+            return true; //if true, return true
         }
     }
-    return false;
+    return false; //return false as default
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function addFriend (name, object) {
-    object.friends.push(name); // pushes the name input into the object friends array
+function addFriend (name, object) { //create a function addFriend that takes two inputs, name and object
+    object.friends.push(name); // push the name input into the object friends array
     return object; //return object
 }
 
@@ -140,15 +141,15 @@ function addFriend (name, object) {
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function isFriend(name, object) {
-    if(object.hasOwnProperty("friends")) {
-        for(var i = 0; i < object.friends.length; i++) {
-            if(object.friends[i] === name) {
-                return true;
+function isFriend(name, object) { //create a function isFriend that takes two inputs, name and object
+    if(object.hasOwnProperty("friends")) { //create if statement to determine if object has a "friends" property
+        for(var i = 0; i < object.friends.length; i++) { //create a for loop to iterate through the property "friends" on object
+            if(object.friends[i] === name) { //create if statement to determine if each iteration of the friend property is strictly equal to name input
+                return true; //if true, return true
             } 
         }
     }
-    return false;
+    return false; //return false as default
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -175,26 +176,26 @@ function isFriend(name, object) {
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function updateObject(object, key, value) {
+function updateObject(object, key, value) { //create a function updateObject that takes three inputs: object, key, and value
 
-    object[key] = value;
+    object[key] = value; //update/create the property key on object by assigning it the value of input value
 
-        return object;
+        return object; //return object
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function removeProperties(object, array) {
-    for(var key in object) {
-        for(var i = 0; i < array.length; i++) {
-            if(key === array[i]) {
-                delete object[key];
+function removeProperties(object, array) { //create a function removeProperties that takes two inpute, object and array
+    for(var key in object) { //create a for/in loop to iterate through the keys in object
+        for(var i = 0; i < array.length; i++) { //create a for loop to iterate through input array
+            if(key === array[i]) { //create if statement to determine if keys in object are strictly equal to each iteration of array 
+                delete object[key]; //if true, delete the object key value
             }
         }
     }
-    return object;
+    return object; //return object
 }
 
 //////////////////////////////////////////////////////////////////////
