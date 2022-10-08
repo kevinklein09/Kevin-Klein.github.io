@@ -11,31 +11,31 @@
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var animal = {};
-animal.species = "dog";
-animal["name"] = "Trunks";
-animal.noises = [];
-console.log(animal);
+var animal = {}; //create a variable named animal and assign it to an empty object
+animal.species = "dog"; //using dot notation, add a property named species with a value to the animal object
+animal["name"] = "Trunks"; //using bracket notation, add a property named name with a value 
+animal.noises = []; // using dot notation, create a property noises with a value of an empty array
+console.log(animal); //print the animal object to the console
 
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var noises = [];
-noises[0] = "woof";
-noises.push("glurgle");
-noises.unshift("grrr");
-noises[noises.length] = "ruff";
-console.log(noises.length);
-console.log(noises[noises.length - 1]);
-console.log(noises);
+var noises = []; //create a variable named noises and assign it to an empty array
+noises[0] = "woof"; //use bracket notation to add an element to noises array
+noises.push("glurgle"); //use push method to add an element to noises array
+noises.unshift("grrr"); //use unshift to add an element to noises array
+noises[noises.length] = "ruff"; //use bracket notation and .length method to add an element to the end of noises
+console.log(noises.length); //log the length of noises to the console
+console.log(noises[noises.length - 1]); //log the last element in noises to the console
+console.log(noises); //log noises to the console
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-animal.noises = noises;
-animal.noises.push("floop");
-console.log(animal);
+animal.noises = noises; //assign the noises property on animal to the new noises array
+animal.noises.push("floop"); //use .push to add a new noise to the end of the noises property on animal
+console.log(animal); //log object animal to the console
 
 
 /* *******************************************************************
@@ -60,29 +60,29 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var animals = [];
-animals.push(animal);
-console.log(animals);
-var duck = { 
+var animals = []; //create a variable animals and assign it to an empty array
+animals.push(animal); //push object animal to animals array
+console.log(animals); //log animals to the console to check work
+var duck = { //create a variable duck and assign it given data
   species: 'duck', 
   name: 'Jerome', 
   noises: ['quack', 'honk', 'sneeze', 'woosh'] 
 };
 
 
-var cat = { 
+var cat = { //create another animal object
   species: 'cat', 
   name: 'Blorp', 
   noises: ['meow', 'honk', 'achoo'] 
 };
 
-var turtle = { 
+var turtle = { //create another animal object
   species: 'turtle', 
   name: 'Jeffery', 
   noises: ['yuum', 'erf', 'kablam'] 
 };
-animals.push(duck, cat, turtle);
-console.log(animals, animals.length);
+animals.push(duck, cat, turtle); //push the new duck, cat, and turtle objects to the animals array
+console.log(animals, animals.length); //log animals and animals length to the console
 
 
 //////////////////////////////////////////////////////////////////////
@@ -90,18 +90,18 @@ console.log(animals, animals.length);
 //////////////////////////////////////////////////////////////////////
 
 // I chose an array for the list of friends because arrays are good for storing simple lists
-var friends = [];
-function getRandom(array) {
-  return randomIndex = Math.floor(Math.random() * array.length);
+var friends = []; //create a variable friends and assign it to an empty array
+function getRandom(array) { //create a function named getRandom that takes an array as an input
+  return randomIndex = Math.floor(Math.random() * array.length); //create and return a variable named randomIndex and assign it the value of a random index of the input array using Math.random and Math.floor
   
 }
-friends.push(animals[getRandom(animals)].name);
+friends.push(animals[getRandom(animals)].name); //use the getRandom function to generate a random animal and add its name to the friends array by the .push method
 
-console.log(friends);
+console.log(friends); //log friends to the console
 
-animals[0]["friends"] = friends;
+animals[0]["friends"] = friends; //use bracket notation to create a property on the duck object in the animals array and assign it to the new array friends
 
-console.log(animals);
+console.log(animals); //log animals to the console
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
