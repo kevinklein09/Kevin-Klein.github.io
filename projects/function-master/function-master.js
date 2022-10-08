@@ -2,51 +2,51 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
-    var newArray = [];
-    for (var key in object) {
-        newArray.push(object[key])
+function objectValues(object) { //create a function objectValues that takes one input, object
+    var newArray = []; //create a variable newArray and assign it to an empty array
+    for(var key in object) { //create a for/in loop to iterate through the keys in the input, object
+        newArray.push(object[key]) //push the object key values to the newArray array
     }
-    return newArray;
+    return newArray; //return newArray
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function keysToString(object) {
-    var newString = "";
-    for(var key in object) {
-        newString += key + " ";
+function keysToString(object) { //create a function keysToString that takes one input, object
+    var newString = ""; //create variable newString and assign it to an empty string
+    for(var key in object) { //use a for/in loop to iterate through the keys in object
+        newString += key + " "; //assign the key at each iteration to the empty string variable newString with a space in between
     }
-    var result = newString.slice(0, -1);
-    return result;
+    var result = newString.slice(0, -1); //create a new variable result to store the result and assign it the value of newString using the .slice method to delete the space at the end of newString
+    return result; //return result
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function valuesToString(object) {
-    var newString = "";
-    for(var key in object) {
-     if(typeof object[key] === "string") {
-         newString += object[key] + " ";
+function valuesToString(object) { //create a function valuesToString that takes one input, object
+    var newString = ""; //create variable newString and assign it to an empty string
+    for(var key in object) { //use a for/in loop to iterate through the keys in object
+     if(typeof object[key] === "string") { //create an if statement to determine if the data type of the key values in the input object is strictly equal to string (using typeof)
+         newString += object[key] + " "; //if true, assign the key value at each iteration to the empty string variable newString with a space in between
      }
-     var result = newString.slice(0, -1);
+     var result = newString.slice(0, -1); //create a new variable result to store the result and assign it the value of newString using the .slice method to delete the space at the end of newString
     } 
-    return result;
+    return result; //return result
  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function arrayOrObject(collection) {
-        if(Array.isArray(collection)) {
-            return "array";
-        } else {
-            return 'object';
+function arrayOrObject(collection) { //create a function arrayOrObject that takes one input, collection
+        if(Array.isArray(collection)) { //create an if statement to determine if the input collection is an array by using the Array.isArray static method
+            return "array"; //if true, return the string "array"
+        } else { //create an else statement
+            return 'object'; //else, return the string "object"
         }
     }
 
@@ -55,27 +55,27 @@ function arrayOrObject(collection) {
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeWord(string) {
-    var firstChar = string.charAt(0).toUpperCase();
-    string = string.slice(1, string.length);
-    return firstChar + string;
+function capitalizeWord(string) { //create a function, capitalizeWord that takes one input, string
+    var firstChar = string.charAt(0).toUpperCase(); //create a variable firstChar and assign it to the upper cased, using .toUpperCase() method, first character of the string, using the .charAt() method 
+    var string = string.slice(1, string.length); //create a variable string and assign its value to a sliced version of the input string using the .slice method
+    return firstChar + string; //return variable firstChar added to the sliced string variable
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function capitalizeAllWords(string) {
-    var myArray = string.split(" ");
-    var myString = "";
-    for(var i = 0; i < myArray.length; i++) {
-        var finalWord = myArray[i].charAt(0).toUpperCase() + myArray[i].slice(1, myArray[i].length);
+function capitalizeAllWords(string) { //create a function capitalizeAllWords that takes one input, string
+    var myArray = string.split(" "); //create a variable myArray and assign it the value of an array comprised of all words in input string by using the .split method
+    var myString = ""; //create a variable myString and assign it the value of an empty string
+    for(var i = 0; i < myArray.length; i++) { //create a for loop to iterate through myArray
+        var finalWord = myArray[i].charAt(0).toUpperCase() + myArray[i].slice(1, myArray[i].length); //create a variable finalWord and assign it the value of the uppercased first character of each iteration of myArray added to a sliced version of each iteration of myArray
         
-        myString += " " + finalWord;
+        myString += " " + finalWord; //assign the value of myString to a space and finalWord
 
     }
-    var result = myString.slice(1, myString.length);
-    return result;
+    var result = myString.slice(1, myString.length); //create a variable result and assign its value to myString without the beginning space at the first character using the .slice method
+    return result; //return result
 }
 
 //////////////////////////////////////////////////////////////////////
