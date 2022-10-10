@@ -202,16 +202,31 @@ function removeProperties(object, array) { //create a function removeProperties 
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function dedup(array) {
-    for(var i = 0; i < array.length; i++) {
-        for(var x = 0; x < array.length; x++) {
-            if(array[i] === array[x]) {
-                array.splice(i, 1);
-            }
-        }
+function dedup(array) { // create a function that takes one input, array
+    var seen = {}; //create a variable of an empty object
+    var newArray = []; //create a variable of an empty array
+    for(var i = 0; i < array.length; i++) { //create a for loop to iterate through the input array
+      if(!(array[i] in seen)) { //create an if statement to determine if each iteration of the array is not
+        newArray.push(array[i]); 
+        seen[array[i]] = true;
+      }
     }
-    return array;
-}
+    return newArray;
+  }
+
+
+
+
+
+//     for(var i = 0; i < array.length; i++) {
+//         for(var x = 0; x < array.length; x++) {
+//             if(array[i] === array[x]) {
+//                 array.splice(i, 1);
+//             }
+//         }
+//     }
+//     return array;
+// }
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

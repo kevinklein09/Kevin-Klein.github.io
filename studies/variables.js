@@ -51,7 +51,7 @@
     firstName = "Kevin";
     console.log(firstName); // prints => Kevin
     /* Declaration and initialization can also be done together within the same line of code:
-    */
+     */
     var firstName = "Kevin";
     console.log(firstName); // prints => Kevin
 
@@ -160,10 +160,27 @@
         console.log(a); // prints => TypeError: Assignment to constant variable.
 
 // 5. Hoisting // 
-        /**
-         * We can use our code before it has been declared and/or initialized in Javascript.
-         * This is because of a mechanism called hoisting, which is when variables and function 
+        /* We can use our code before it has been declared and/or initialized in Javascript.
+         * This is because of a mechanism called hoisting, which is when variable and function 
          * declarations are pulled to the top of their current scope before code execution. 
-         * 
          */
+        console.log(hoistingExample); // prints => undefined
+        var hoistingExample = true;
+        console.log(hoistingExample); // prints => true
+        /**
+         * The reason why undefined is logged to the console is because Javascript only hoists 
+         * a variable's declaration to the top of its scope, NOT its initialization. After hoisting,
+         * this is how the above code will be interpreted:
+         */
+        var hoistingExample; // the variable declaration is hoisted to the top of its scope
+        console.log(hoistingExample); // prints => undefined
+        var hoistingExample = true; 
+        console.log(hoistingExample); // prints => true
+        /**
+         * Similar to var declarations, variables that are declared with the keywords let and
+         * const are also hoisted to the top of their scope, yet they are not initialized with 
+         * a default value.   
+         */
+
+        
 
