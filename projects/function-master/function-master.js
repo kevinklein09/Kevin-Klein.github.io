@@ -156,20 +156,23 @@ function isFriend(name, object) { //create a function isFriend that takes two in
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-// function nonFriends(name, array) {
-//     var newArray = [];
-//     for(var i = 0; i < array.length; i++) {
-//         for(var x = 0; x < newArray.length; x++) {
-//             if(array[i] !== newArray[i]) {
+function nonFriends(name, array) {
+    var newArray = [];
+    var myArray = [];
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].name === name) {
+            newArray = array[i].friends;
+        }
+    }
+    for(var i = 0; i < array.length; i++) {
+        if(newArray.indexOf(array[i].name) === -1 && array[i].name !== name) {
+            myArray.push(array[i].name);
+            }
+        }
 
-//             }
-//         }
-//         if(array[i].name === name) {
-//             newArray = array[i].friends;
-//         }
-//     }
-
-// }
+    return myArray;
+    
+}
 
 
 //////////////////////////////////////////////////////////////////////
