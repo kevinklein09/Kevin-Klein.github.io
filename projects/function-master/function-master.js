@@ -156,21 +156,21 @@ function isFriend(name, object) { //create a function isFriend that takes two in
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
-    var newArray = [];
-    var myArray = [];
-    for(var i = 0; i < array.length; i++) {
-        if(array[i].name === name) {
-            newArray = array[i].friends;
+function nonFriends(name, array) { //create a function nonFriends that takes two inputs, name and array
+    var newArray = []; //create a variable newArray with a value of an empty array
+    var myArray = []; //create a variable myArray with a value of an empty array
+    for(var i = 0; i < array.length; i++) { //create a for loop to iterate through the array
+        if(array[i].name === name) { //create an if statement to determine if the name key at each iteration of array is stictly equal to the input, name
+            newArray = array[i].friends; //if true, add the value of the key friends at that iteration of the array to myArray 
         }
     }
-    for(var i = 0; i < array.length; i++) {
-        if(newArray.indexOf(array[i].name) === -1 && array[i].name !== name) {
-            myArray.push(array[i].name);
+    for(var i = 0; i < array.length; i++) { //create a for loop to iterate through the array
+        if(newArray.indexOf(array[i].name) === -1 && array[i].name !== name) { //create an if statement that determines if the key name value at the iteration of array is a value of newArray by using .indexOf() AND if the key name value at the iteration of the array is strictly not equal to the input, name
+            myArray.push(array[i].name); //if true, push the key name value at the iteration of array into myArray
             }
         }
 
-    return myArray;
+    return myArray; //return myArray
     
 }
 
