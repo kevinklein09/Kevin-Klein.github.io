@@ -1,5 +1,4 @@
-/**
- * VARIABLES:
+/** VARIABLES:
  * 
  * 0: Variables are named containers that are used to store data in Javascript. 
  * They can be thought of as placeholders that can be accessed later in our program. 
