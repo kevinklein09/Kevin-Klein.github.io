@@ -206,12 +206,12 @@ function dedup(array) { // create a function that takes one input, array
     var seen = {}; //create a variable of an empty object
     var newArray = []; //create a variable of an empty array
     for(var i = 0; i < array.length; i++) { //create a for loop to iterate through the input array
-      if(!(array[i] in seen)) { //create an if statement to determine if each iteration of the array is not
-        newArray.push(array[i]); 
-        seen[array[i]] = true;
+      if(!(array[i] in seen)) { //create an if statement to determine if each iteration of the array is not in the seen object
+        newArray.push(array[i]); //if true, push the iteration of array into newArray
+        seen[array[i]] = true; // add a key of the array iteration to the seen object with bracket notation and assign its value to true
       }
     }
-    return newArray;
+    return newArray; //return newArray
   }
 
 
