@@ -159,7 +159,7 @@ function isFriend(name, object) { //create a function isFriend that takes two in
 // function nonFriends(name, array) {
 //     var newArray = [];
 //     for(var i = 0; i < array.length; i++) {
-//         for(var i = 0; i < newArray.length; i++) {
+//         for(var x = 0; x < newArray.length; x++) {
 //             if(array[i] !== newArray[i]) {
 
 //             }

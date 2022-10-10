@@ -32,6 +32,7 @@ function fizzBuzz() { //create a function fizzBuzz
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(number) { //create a function drawwChessBoard that takes one input, number
+  
   let result = ''; //create an empty string result
 
   let row = 1;
@@ -48,7 +49,23 @@ function drawChessboard(number) { //create a function drawwChessBoard that takes
     result += '\n'; // add a newline symbol to end current row
     row += 1;
   }
+  console.log(result);
 }
+/*
+// invoke function drawChessboard(3)
+  //result = ""
+  //row = 1
+  //while 1 <= 3
+    // column = 1
+    //while 1 <= 3
+      //if 2 is even
+        // result = "" + " " => " "
+      // column = 1 + 1 => 2
+    //while 2 <= 3
+      // (false)
+      // else result = " " + "#"" => " #"
+
+*/
 
 
 

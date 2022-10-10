@@ -56,7 +56,7 @@ function remove(array, string) {
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(array, object) {
-    if(object.name.length > 0 && object.species.length > 0) { //create an if statement to determine if the animal object has a name AND species property witha length greater than 0
+    if(object.name.length > 0 && object.species.length > 0) { //create an if statement to determine if the animal object has a name AND species property with a length greater than 0
         for(var i = 0; i < array.length; i++) { //create a for loop to iterate through the array
             if(array[i].name !== object.name) { //create an if statement to determine if the array contains the input object name already by using the strictly not equal operator
                 return array.push(object); //if true, push the object into the array
