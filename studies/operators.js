@@ -24,26 +24,34 @@
      *      **                  Exponentiation                      3 ** 2
      *      /                   Division                            20 / 5
      *      %                   Modulus(Division Remainder)         9 % 2
-     * 
-     * 
      */
-
+    // Here's an example of the modulus operator in action:
+    var x = 5;
+    var y = 2;
+    console.log(x % y); // prints => 1
 
 // 2. Assignment Operators //
     /* Assignment operators are used to assign values to variables. 
      *
-     * NAME:                        OPERATOR:        SHORTHAND:           MEANING:
-     * Assignment operator              =               x = y               x = y
-     * Addition assignment              +=              x += y              x = x + y
-     * Subtraction assignment           -=              x -= y              x = x - y
-     * Multiplication assignment        *=              x *= y              x = x * y
-     * Division assignment              /=              x /= y              x = x / y
-     * Remainder assignment             %=              x %= y              x = x % y   
-     * Exponentiaton assignment         **=             x **= y             x = x ** y
+     * NAME:                        OPERATOR:      SHORTHAND EXAMPLE:     MEANING:
+     * Assignment operator              =              x = y                x = y
+     * Addition assignment              +=             x += y               x = x + y
+     * Subtraction assignment           -=             x -= y               x = x - y
+     * Multiplication assignment        *=             x *= y               x = x * y
+     * Division assignment              /=             x /= y               x = x / y
+     * Remainder assignment             %=             x %= y               x = x % y   
+     * Exponentiaton assignment         **=            x **= y              x = x ** y
      */
-    // Here's an example of addition assignment operator in action
+    // Here's an example of the addition assignment operator in action
     var x = 5;
     console.log(x+=4) // prints => 9
 
-// 2. Arithmetic Operators // 
+// 2. Comparison Operators // 
+    /* Comparison operators are used to compare two values and return a boolean value, either
+     * true or false.
+     * 
+     * NAME:                    OPERATOR:           SHORTHAND:           MEANING:
+     * Strict equality              ===                 
+     * 
+     */
     
