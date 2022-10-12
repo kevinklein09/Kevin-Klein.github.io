@@ -49,10 +49,9 @@ _.identity = function(value) {
 
 _.typeOf = function(value) {
     if(Array.isArray(value) === true) {
-        if(typeof value === "object" && value === null) {
-            return "null";
-        }
         return "array";
+    } else if(Array.isArray(value) !== true && value === null) {
+        return "null";
     }
 
     return typeof value;
@@ -77,6 +76,21 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(arr, num) {
+    if(Array.isArray(arr) === false || num < 0) {
+        return [];
+    }
+    if(isNaN(num) === true) {
+        return arr[0];
+    }
+    if(num > arr.length) {
+        return arr;
+    }
+    return arr.splice(0, num);
+}
+
+
+
 
 /** _.last
 * Arguments:
@@ -96,6 +110,19 @@ _.typeOf = function(value) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(arr, num) {
+    if(Array.isArray(arr) === false || num < 0) {
+        return [];
+    }  
+    if(isNaN(num) === true) {
+        return arr[arr.length - 1];
+    }
+    if(num > arr.length) {
+        return arr;
+    }
+    return arr.slice(-num);
+}
+
 
 /** _.indexOf
 * Arguments:
@@ -113,6 +140,16 @@ _.typeOf = function(value) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(arr, val) {
+    for(var i = 0; i < arr.length; i++) {
+        if(val === arr[i]) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
 
 /** _.contains
 * Arguments:
@@ -128,6 +165,11 @@ _.typeOf = function(value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(arr, val) {
+    return arr.includes(val) ? true : false;
+}
+
 
 
 /** _.each
@@ -175,6 +217,18 @@ _.each = function(collection, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(arr) {
+    var newArray = [];
+    for(var i = 0; i < arr.length; i++) {
+        var indexNum = _.indexOf(arr, arr[i]);
+        if(indexNum === i) {
+            newArray.push(arr[i]);
+        }
+    } 
+    return newArray;
+}
+
+
 
 /** _.filter
 * Arguments:
@@ -192,6 +246,15 @@ _.each = function(collection, func) {
 *   use _.each in your implementation
 */
 
+_.filter = function(arr, func) {
+    var newArray = [];
+    for(var i = 0; i < arr.length; i++){ //iterate through arr
+        if(func(arr[i], i, arr) === true) {
+            newArray.push(arr[i]);
+        }
+    } 
+    return newArray;
+}
 
 /** _.reject
 * Arguments:
@@ -205,6 +268,17 @@ _.each = function(collection, func) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(arr, func) {
+    var newArray = [];
+    for(var i = 0; i < arr.length; i++){ //iterate through arr
+        if(func(arr[i], i, arr) === false) {
+            newArray.push(arr[i]);
+        }
+    } 
+    return newArray;
+}
+
 
 
 /** _.partition
@@ -226,6 +300,24 @@ _.each = function(collection, func) {
 }
 */
 
+_.partition = function(arr, func) {
+    var newArray = [];
+    var falseArray = [];
+    var trueArray = [];
+    for(var i = 0; i < arr.length; i++) {
+        if(func(arr[i], i, arr) === true) {
+            trueArray.push(arr[i]);
+        } else {
+            falseArray.push(arr[i]);
+        }
+    }
+    newArray.push(trueArray);
+    newArray.push(falseArray);
+
+    return newArray;
+
+}
+
 
 /** _.map
 * Arguments:
@@ -243,6 +335,21 @@ _.each = function(collection, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func) {
+    var newArray = [];
+    if(Array.isArray(collection) === true) {
+        for(var i = 0; i < collection.length; i++) {
+            newArray.push(func(collection[i], i, collection));
+        }
+    } else {
+        for(var key in collection) {
+            newArray.push(func(collection[key], key, collection));
+        }
+    }
+    return newArray;
+}
+
+
 
 /** _.pluck
 * Arguments:
@@ -254,6 +361,14 @@ _.each = function(collection, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(arr, key) { //create a function _.pluck that takes in two inputs, arr and key
+    var newArray = []; //create 
+    for(var i = 0; i < arr.length; i++) {
+        newArray.push(_.map(arr[i], func([key])));
+    } 
+    return newArray;
+}
 
 
 /** _.every
@@ -276,6 +391,49 @@ _.each = function(collection, func) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function(collection, func) {
+
+    //determine if func is not provided
+    if(func === undefined) {
+        //determine if collection is an array
+        if(Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) {
+                if(!collection[i]) { //determines if collection[i] is a falsey datatype
+                    return false;
+                }
+            }
+        } else {
+            for(let key in collection) {
+                if(!collection[key]) {
+                    return false;
+                }
+            }
+        }
+        //else its an object
+    } else { // else func was provided
+        //determine if collection is an array
+        if(Array.isArray(collection)) {
+            //iterate through collection
+            for(let i = 0; i < collection.length; i++) {
+                //what am I determining?
+                if(func(collection[i], i, collection) === false) {
+                    return false;
+                }
+            }
+        } else { //else object
+            //iterate through object 
+            for(let key in collection) {
+                if (func(collection[key], key, collection) === false) {
+                    return false;
+                }
+            }
+        }
+        
+    }
+    return true;
+
+}
+
 
 
 /** _.some
