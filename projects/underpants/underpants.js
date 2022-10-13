@@ -51,9 +51,9 @@ _.identity = function(value) { //create a function _.identity that takes one inp
 
 _.typeOf = function(value) { //create a function _.typeOf that takes one input, value
     if(Array.isArray(value) === true) { //create an if statement to determine if the value is an array
-        return "array"; //if true, return array
+        return "array"; //return array
     } else if(Array.isArray(value) !== true && value === null) { //create an else/if statement to determine if the value is not an array AND is equal to null
-        return "null"; //if true, return null
+        return "null"; //return null
     }
 
     return typeof value; //return datatype type of value as a defult
@@ -143,12 +143,12 @@ _.last = function(arr, num) { //create function expression _.last that takes two
 */
 
 _.indexOf = function(arr, val) { //create .indexOf function expression that takes in two inputs, arr and val
-    for(var i = 0; i < arr.length; i++) { 
-        if(val === arr[i]) {
-            return i;
+    for(var i = 0; i < arr.length; i++) {  //iterate through arr with for loop
+        if(val === arr[i]) { //determine if val is strictly equal to each iteration of arr 
+            return i; //return index of array
         }
     }
-    return -1;
+    return -1; //return -1 if balue is not in array
 }
 
 
@@ -168,8 +168,8 @@ _.indexOf = function(arr, val) { //create .indexOf function expression that take
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
-_.contains = function(arr, val) {
-    return arr.includes(val) ? true : false;
+_.contains = function(arr, val) { //create function expression _.contains that takes in two inputs, arr and val
+    return arr.includes(val) ? true : false; //use ternary operator to determine if arr includes val, if so return true, if not return false
 }
 
 
@@ -194,12 +194,12 @@ _.each = function(collection, func) {
     //determine if collection is array
     if(Array.isArray(collection)) {
         //iterate through collection using for loop
-        for(let i = 0; i < collection.length; i++) {
-            func(collection[i], i, collection);
+        for(let i = 0; i < collection.length; i++) { 
+            func(collection[i], i, collection); //call the input func on each property
         }
     } else { // else it's an object
         //iterate through collection using a for in loop
-        for(let key in collection) {
+        for(let key in collection) { 
             //call the input func on each property
             func(collection[key], key, collection);
         }
