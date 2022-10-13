@@ -40,3 +40,13 @@
 2) portfolio.html will be the file that contains all work for 'Portfolio Page
    a) In the lesson todos, ingore TODO 1 (but copy boilerplate code)
    b) You can stop at TODO 5
+
+# To Access myLodown
+1) click on three lines in top left corner
+2) click file > open file
+3) delete everything in dialogue box except -> /workspace/
+4) click myLodown > click index.js
+
+# How to Push Code to myLodown
+1) Make sure your terminal reads /workspace/lodown
+2) Run git commands
