@@ -78,17 +78,17 @@ _.typeOf = function(value) { //create a function _.typeOf that takes one input, 
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
-_.first = function(arr, num) {
-    if(Array.isArray(arr) === false || num < 0) {
-        return [];
+_.first = function(arr, num) { //create a function expression _.first that takes in two inputs, arr and num
+    if(Array.isArray(arr) === false || num < 0) { //determine if input arr is not an array OR input num is less than 0
+        return [];//return array literal []
     }
-    if(isNaN(num) === true) {
-        return arr[0];
+    if(isNaN(num) === true) { //determine if num is non a num, using NaN method
+        return arr[0]; //return arr at 0 index
     }
-    if(num > arr.length) {
-        return arr;
+    if(num > arr.length) { //determine if num is greater than the length of arr
+        return arr; //return arr
     }
-    return arr.splice(0, num);
+    return arr.splice(0, num); //return the first amount of the integer value num in the array by using the .splice method
 }
 
 
@@ -112,17 +112,17 @@ _.first = function(arr, num) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
-_.last = function(arr, num) {
-    if(Array.isArray(arr) === false || num < 0) {
-        return [];
+_.last = function(arr, num) { //create function expression _.last that takes two inputs, arr and num
+    if(Array.isArray(arr) === false || num < 0) { //determine if input arr is not an array OR input num is less than 0
+        return []; //return array literal []
     }  
-    if(isNaN(num) === true) {
-        return arr[arr.length - 1];
+    if(isNaN(num) === true) { //determine if num is non a num, using NaN method
+        return arr[arr.length - 1]; //return last element in array
     }
-    if(num > arr.length) {
-        return arr;
+    if(num > arr.length) { //determine is num is greater than array length
+        return arr; //return arr
     }
-    return arr.slice(-num);
+    return arr.slice(-num); //return arr using .splice and turning the input num into a positive integer
 }
 
 
@@ -142,8 +142,8 @@ _.last = function(arr, num) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-_.indexOf = function(arr, val) {
-    for(var i = 0; i < arr.length; i++) {
+_.indexOf = function(arr, val) { //create .indexOf function expression that takes in two inputs, arr and val
+    for(var i = 0; i < arr.length; i++) { 
         if(val === arr[i]) {
             return i;
         }
@@ -525,16 +525,15 @@ _.reduce = function(array, func, seed){
     let result; // create result variable
     //determine if seed didn't receive a value
     if(seed === undefined) { //if not passed in
-        result = array[0];
-        //iterate through array starting at 1 index
-        for(let i = 1; i < array.length; i++){
-            result = func(result, array[i], i, array);
+        result = array[0]; //assign the value of result to the input array at index 0
+        for(let i = 1; i < array.length; i++){ //iterate through array starting at 1 index
+            result = func(result, array[i], i); //assign the value of result to the input test function, passing in the arguments of the previous result, each iteration of array, the inde
         }
-    } else { 
-        result = seed;
+    } else { //create an else statement
+        result = seed; //assign the value of result to seed
         for(let i = 0; i < array.length; i++) {
             //reassign result to the result of invoking callback function
-            result = func(result, array[i], i, array);
+            result = func(result, array[i], i);
         }
     }
     return result; //return result
@@ -557,22 +556,11 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(object1, ...objects) {
-    for(var key in objects) {
-        for(var i = 0; i < objects.length; i++) {
-            object1[key] = objects[key][i];
-        }
-    }
-    return object1;
+_.extend = function(object1, object2, ...objects) { //create a function expression _.extend that takes three inputs, object1, object2, ...objects
+    Object.assign(object1, object2, ...objects)  //use the Object.assign() method to assign the properties of object2 and ...objects to object1
+
+    return object1; //return object1
 }
-//     for(var key in object2) {
-//         object1[key] = object2[key];
-//         for(var key in objects) {
-//             object1[key] = objects[key];
-//         }
-//     }
-//     return object1;
-// }
 
 
 
