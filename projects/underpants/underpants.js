@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+// const { result } = require("lodash");
+
 
 /**
 * START OF OUR LIBRARY!
@@ -22,8 +24,8 @@ var _ = {}; // declaring a variable _ and assigning it an empty object // _ = {}
 */
 
 
-_.identity = function(value) {
-    return value;
+_.identity = function(value) { //create a function _.identity that takes one input, value
+    return value; //return value unchanged
 }
 
 
@@ -47,14 +49,14 @@ _.identity = function(value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 
-_.typeOf = function(value) {
-    if(Array.isArray(value) === true) {
-        return "array";
-    } else if(Array.isArray(value) !== true && value === null) {
-        return "null";
+_.typeOf = function(value) { //create a function _.typeOf that takes one input, value
+    if(Array.isArray(value) === true) { //create an if statement to determine if the value is an array
+        return "array"; //if true, return array
+    } else if(Array.isArray(value) !== true && value === null) { //create an else/if statement to determine if the value is not an array AND is equal to null
+        return "null"; //if true, return null
     }
 
-    return typeof value;
+    return typeof value; //return datatype type of value as a defult
 }
 
 
@@ -362,12 +364,9 @@ _.map = function(collection, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-_.pluck = function(arr, key) { //create a function _.pluck that takes in two inputs, arr and key
-    var newArray = []; //create 
-    for(var i = 0; i < arr.length; i++) {
-        newArray.push(_.map(arr[i], func([key])));
-    } 
-    return newArray;
+_.pluck = function(arr, property) { //create a function _.pluck that takes in two inputs, arr and key
+    return _.map(arr, function(e) {return e[property]})
+ 
 }
 
 
@@ -432,6 +431,7 @@ _.every = function(collection, func) {
     }
     return true;
 
+
 }
 
 
@@ -457,6 +457,50 @@ _.every = function(collection, func) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func) {
+    //determine if func is not provided
+    if(func === undefined) {
+        //determine if collection is an array
+        if(Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) {
+                if(!collection[i]) { //determines if collection[i] is a falsey datatype
+                    return false;
+                }
+            }
+        } else {
+            for(let key in collection) {
+                if(!collection[key]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+        //else its an object
+    } else { // else func was provided
+        //determine if collection is an array
+        if(Array.isArray(collection)) {
+            //iterate through collection
+            for(let i = 0; i < collection.length; i++) {
+                //determine if the function is equal to
+                if(func(collection[i], i, collection) === true) {
+                    return true;
+                }
+            }
+        } else { //else object
+            //iterate through object 
+            for(let key in collection) {
+                if (func(collection[key], key, collection) === false) {
+                    return true;
+                }
+            }
+        }
+        
+    }
+    return false;
+
+}
+
+
 
 /** _.reduce
 * Arguments:
@@ -477,6 +521,26 @@ _.every = function(collection, func) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+    let result; // create result variable
+    //determine if seed didn't receive a value
+    if(seed === undefined) { //if not passed in
+        result = array[0];
+        //iterate through array starting at 1 index
+        for(let i = 1; i < array.length; i++){
+            result = func(result, array[i], i, array);
+        }
+    } else { 
+        result = seed;
+        for(let i = 0; i < array.length; i++) {
+            //reassign result to the result of invoking callback function
+            result = func(result, array[i], i, array);
+        }
+    }
+    return result; //return result
+}
+
+
 
 /** _.extend
 * Arguments:
@@ -492,6 +556,25 @@ _.every = function(collection, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, ...objects) {
+    for(var key in objects) {
+        for(var i = 0; i < objects.length; i++) {
+            object1[key] = objects[key][i];
+        }
+    }
+    return object1;
+}
+//     for(var key in object2) {
+//         object1[key] = object2[key];
+//         for(var key in objects) {
+//             object1[key] = objects[key];
+//         }
+//     }
+//     return object1;
+// }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
