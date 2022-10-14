@@ -219,15 +219,15 @@ _.each = function(collection, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
-_.unique = function(arr) {
-    var newArray = [];
-    for(var i = 0; i < arr.length; i++) {
-        var indexNum = _.indexOf(arr, arr[i]);
-        if(indexNum === i) {
-            newArray.push(arr[i]);
+_.unique = function(arr) { //create a function expression _.unique that takes in one input, array
+    var newArray = []; //create a new variable newArray and assign it to an array literal
+    for(var i = 0; i < arr.length; i++) { //iterate through array with for loop
+        var indexNum = _.indexOf(arr, arr[i]); //create a new variable indexNum and assign it to the value of function call _.indexOf with arr and arr[i] as inputs
+        if(indexNum === i) { //determine if indexNum is strictly equal to the index of the current iteration
+            newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
     } 
-    return newArray;
+    return newArray; //return newArray
 }
 
 
@@ -248,14 +248,14 @@ _.unique = function(arr) {
 *   use _.each in your implementation
 */
 
-_.filter = function(arr, func) {
-    var newArray = [];
+_.filter = function(arr, func) { //create function expression _.filter that takes two inputs, arr and func
+    var newArray = []; //create a variable newArray and assign its value to an array literal
     for(var i = 0; i < arr.length; i++){ //iterate through arr
-        if(func(arr[i], i, arr) === true) {
-            newArray.push(arr[i]);
+        if(func(arr[i], i, arr) === true) { //determine if the test function, with the inputs arr[i], i, and arr are strictly equal to true
+            newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
     } 
-    return newArray;
+    return newArray; //return newArray
 }
 
 /** _.reject
@@ -271,14 +271,14 @@ _.filter = function(arr, func) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-_.reject = function(arr, func) {
-    var newArray = [];
+_.reject = function(arr, func) { //create a function expression _.reject that takes in two inputs, arr and func
+    var newArray = []; //create a variable newArray and assign it to an array literal
     for(var i = 0; i < arr.length; i++){ //iterate through arr
-        if(func(arr[i], i, arr) === false) {
-            newArray.push(arr[i]);
+        if(func(arr[i], i, arr) === false) { //determine if the test function, with the inputs arr[i], i, and arr are strictly equal to false
+            newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
     } 
-    return newArray;
+    return newArray; //return newArray
 }
 
 

@@ -89,7 +89,7 @@ var oldestCustomer = function(array){
 
 
 var youngestCustomer= function(array){
-    let youngest = 0;
+    let youngest = 1000;
     return _.reduce(array, function(pre, curr){
         if(curr.age < youngest) {
             youngest = curr.age;
@@ -100,7 +100,13 @@ var youngestCustomer= function(array){
 };
 
 
-var averageBalance;
+var averageBalance = function(array){
+    return _.reduce(array, function(aBalance, obj, i, array){
+        aBalance = obj.balance.replace(/[$,]/g, "");
+        aBalance / array.length;
+        return aBalance;
+    }, 0);
+};
 
 var firstLetterCount;
 
