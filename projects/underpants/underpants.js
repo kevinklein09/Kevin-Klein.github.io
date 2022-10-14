@@ -304,7 +304,7 @@ _.partition = function(arr, func) { //create function expression _.partition tha
     var falseArray = []; //create new variable falseArray and assign it to an array literal
     var trueArray = []; //create a new variable trueArray and assign it to an array literal
     for(var i = 0; i < arr.length; i++) { //use for loop to iterate through arr
-        if(func(arr[i], i, arr) === true) { //determine if test func with the arguments arr[i], i, and arr are striclty equal to true
+        if(func(arr[i], i, arr) === true) { //determine if test func with the arguments arr[i], i, and arr is striclty equal to true
             trueArray.push(arr[i]); //if true, push current iteration of arr into trueArray
         } else { //else
             falseArray.push(arr[i]); //push current iteration of arr into falseArray
@@ -387,21 +387,22 @@ _.pluck = function(arr, property) { //create a function _.pluck that takes in tw
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-_.every = function(collection, func) {
+
+_.every = function(collection, func) { //create a function expression _.every that takes in the arguments collection and func
 
     //determine if func is not provided
     if(func === undefined) {
         //determine if collection is an array
         if(Array.isArray(collection)) {
-            for(let i = 0; i < collection.length; i++) {
-                if(!collection[i]) { //determines if collection[i] is a falsey datatype
-                    return false;
+            for(let i = 0; i < collection.length; i++) { //iterate through collection with a for loop
+                if(!collection[i]) { //determine if collection[i] is a falsey datatype
+                    return false; //return false
                 }
             }
-        } else {
-            for(let key in collection) {
-                if(!collection[key]) {
-                    return false;
+        } else { // else collection is an object
+            for(let key in collection) { //iterate through collection with a for/in loop
+                if(!collection[key]) { ////determine if collection[key] is a falsey datatype
+                    return false; //return false
                 }
             }
         }
@@ -409,24 +410,24 @@ _.every = function(collection, func) {
     } else { // else func was provided
         //determine if collection is an array
         if(Array.isArray(collection)) {
-            //iterate through collection
+            //iterate through collection with a for loop
             for(let i = 0; i < collection.length; i++) {
-                //what am I determining?
+                //determine if test func with the arguments collection[i], i, and collection is striclty equal to false
                 if(func(collection[i], i, collection) === false) {
-                    return false;
+                    return false; //return false
                 }
             }
         } else { //else object
-            //iterate through object 
+            //iterate through object with for/in loop
             for(let key in collection) {
-                if (func(collection[key], key, collection) === false) {
-                    return false;
+                if(func(collection[key], key, collection) === false) { //determine if test func with the arguments collection[key], key, and collection is striclty equal to false
+                    return false; //return false
                 }
             }
         }
         
     }
-    return true;
+    return true; //return true
 
 
 }
@@ -478,22 +479,23 @@ _.some = function(collection, func) {
         if(Array.isArray(collection)) {
             //iterate through collection
             for(let i = 0; i < collection.length; i++) {
-                //determine if the function is equal to
+                //determine if the test function with the arguments collection[i], i, and collection is strictly equal to true
                 if(func(collection[i], i, collection) === true) {
-                    return true;
+                    return true; //return true
                 }
             }
         } else { //else object
             //iterate through object 
             for(let key in collection) {
-                if (func(collection[key], key, collection) === false) {
-                    return true;
+                //determine if the test function with the arguments collection[key], key, and collection is strictly equal to true
+                if (func(collection[key], key, collection) === false) { 
+                    return true; //return true
                 }
             }
         }
         
     }
-    return false;
+    return false; //return false
 
 }
 
