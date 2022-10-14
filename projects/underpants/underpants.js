@@ -190,18 +190,15 @@ _.contains = function(arr, val) { //create function expression _.contains that t
 *      -> should log "a" "b" "c" to the console
 */
 
-_.each = function(collection, func) {
-    //determine if collection is array
-    if(Array.isArray(collection)) {
-        //iterate through collection using for loop
-        for(let i = 0; i < collection.length; i++) { 
-            func(collection[i], i, collection); //call the input func on each property
+_.each = function(collection, func) { //create a function expression _.each that takes the inputs collection and func
+    if(Array.isArray(collection)) { //determine if collection is array by using Array.isArray method
+        for(let i = 0; i < collection.length; i++) { //iterate through collection using for loop
+            func(collection[i], i, collection); //call func once for each property, passing in the arguments collection[i], i, and collection
         }
     } else { // else it's an object
-        //iterate through collection using a for in loop
-        for(let key in collection) { 
-            //call the input func on each property
-            func(collection[key], key, collection);
+
+        for(let key in collection) { //iterate through keys in collection with a for/in loop
+            func(collection[key], key, collection); //call the input func on each property
         }
     }
     
@@ -222,7 +219,7 @@ _.each = function(collection, func) {
 _.unique = function(arr) { //create a function expression _.unique that takes in one input, array
     var newArray = []; //create a new variable newArray and assign it to an array literal
     for(var i = 0; i < arr.length; i++) { //iterate through array with for loop
-        var indexNum = _.indexOf(arr, arr[i]); //create a new variable indexNum and assign it to the value of function call _.indexOf with arr and arr[i] as inputs
+        var indexNum = _.indexOf(arr, arr[i]); //create a new variable indexNum and assign it to the value of function call _.indexOf passing in the arguments arr and arr[i]
         if(indexNum === i) { //determine if indexNum is strictly equal to the index of the current iteration
             newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
@@ -251,7 +248,7 @@ _.unique = function(arr) { //create a function expression _.unique that takes in
 _.filter = function(arr, func) { //create function expression _.filter that takes two inputs, arr and func
     var newArray = []; //create a variable newArray and assign its value to an array literal
     for(var i = 0; i < arr.length; i++){ //iterate through arr
-        if(func(arr[i], i, arr) === true) { //determine if the test function, with the inputs arr[i], i, and arr are strictly equal to true
+        if(func(arr[i], i, arr) === true) { //determine if the test function, with the arguments arr[i], i, and arr are strictly equal to true
             newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
     } 
@@ -274,7 +271,7 @@ _.filter = function(arr, func) { //create function expression _.filter that take
 _.reject = function(arr, func) { //create a function expression _.reject that takes in two inputs, arr and func
     var newArray = []; //create a variable newArray and assign it to an array literal
     for(var i = 0; i < arr.length; i++){ //iterate through arr
-        if(func(arr[i], i, arr) === false) { //determine if the test function, with the inputs arr[i], i, and arr are strictly equal to false
+        if(func(arr[i], i, arr) === false) { //determine if the test function, passing in the arguments arr[i], i, and arr are strictly equal to false
             newArray.push(arr[i]); //push the current iteration of input arr into newArray
         }
     } 
@@ -302,21 +299,21 @@ _.reject = function(arr, func) { //create a function expression _.reject that ta
 }
 */
 
-_.partition = function(arr, func) {
-    var newArray = [];
-    var falseArray = [];
-    var trueArray = [];
-    for(var i = 0; i < arr.length; i++) {
-        if(func(arr[i], i, arr) === true) {
-            trueArray.push(arr[i]);
-        } else {
-            falseArray.push(arr[i]);
+_.partition = function(arr, func) { //create function expression _.partition that takes in two inputs, arr and func
+    var newArray = []; //create new variable newArray and assign it to an array literal
+    var falseArray = []; //create new variable falseArray and assign it to an array literal
+    var trueArray = []; //create a new variable trueArray and assign it to an array literal
+    for(var i = 0; i < arr.length; i++) { //use for loop to iterate through arr
+        if(func(arr[i], i, arr) === true) { //determine if test func with the arguments arr[i], i, and arr are striclty equal to true
+            trueArray.push(arr[i]); //if true, push current iteration of arr into trueArray
+        } else { //else
+            falseArray.push(arr[i]); //push current iteration of arr into falseArray
         }
     }
-    newArray.push(trueArray);
-    newArray.push(falseArray);
+    newArray.push(trueArray); //push trueArray into newArray
+    newArray.push(falseArray); //push falseArray into newArray
 
-    return newArray;
+    return newArray; //return newArray
 
 }
 
@@ -337,18 +334,18 @@ _.partition = function(arr, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function(collection, func) {
-    var newArray = [];
-    if(Array.isArray(collection) === true) {
-        for(var i = 0; i < collection.length; i++) {
-            newArray.push(func(collection[i], i, collection));
+_.map = function(collection, func){ //create function expression _.map that takes in two inputs, collection and func
+    var newArray = []; //create new variable newArray and assign it to an array literal
+    if(Array.isArray(collection) === true) { //determine if collection is an array by using the Array.isArray method
+        for(var i = 0; i < collection.length; i++) { //iterate through collection with for loop
+            newArray.push(func(collection[i], i, collection)); //call function for each element in collection passing in the arguments collection[i]
         }
-    } else {
-        for(var key in collection) {
-            newArray.push(func(collection[key], key, collection));
+    } else { //else it's an object
+        for(var key in collection) { //iterate through the keys in collection with a for/in loop
+            newArray.push(func(collection[key], key, collection)); //push the return value of each function call into newArray
         }
     }
-    return newArray;
+    return newArray; //return newArray
 }
 
 
@@ -365,7 +362,7 @@ _.map = function(collection, func) {
 */
 
 _.pluck = function(arr, property) { //create a function _.pluck that takes in two inputs, arr and key
-    return _.map(arr, function(e) {return e[property]})
+    return _.map(arr, function(e) {return e[property]}) //return an array containing the value of propery for every element in array using the _.map function
  
 }
 
