@@ -527,13 +527,13 @@ _.reduce = function(array, func, seed){
     if(seed === undefined) { //if not passed in
         result = array[0]; //assign the value of result to the input array at index 0
         for(let i = 1; i < array.length; i++){ //iterate through array starting at 1 index
-            result = func(result, array[i], i); //assign the value of result to the input test function, passing in the arguments of the previous result, each iteration of array, the inde
+            result = func(result, array[i], i, array); //assign the value of result to the input test function, passing in the arguments of the previous result, each iteration of array, the inde
         }
     } else { //create an else statement
         result = seed; //assign the value of result to seed
         for(let i = 0; i < array.length; i++) {
             //reassign result to the result of invoking callback function
-            result = func(result, array[i], i);
+            result = func(result, array[i], i, array);
         }
     }
     return result; //return result
