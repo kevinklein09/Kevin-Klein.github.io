@@ -56,7 +56,7 @@ _.typeOf = function(value) { //create a function _.typeOf that takes one input, 
         return "null"; //return null
     }
 
-    return typeof value; //return datatype type of value as a defult
+    return typeof value; //return data type of value as a defult
 }
 
 
