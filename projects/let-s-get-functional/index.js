@@ -4,6 +4,7 @@
 
 var customers = require('./data/customers.json');
 var _ = require('underbar');
+const object = require('underbar/object');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -124,18 +125,48 @@ var friendsCount = function(array, name) {
 }
 
 
-var topThreeTags = function(array);
-    return function pluck(array, property) {
-        return _.map(arr, function(obj) {
-            let count = 0;
-            for(let i = 0; i < obj.tags.length; i++) {
+var topThreeTags = function(array){
+    let map = {};
+    _.each(array, function(obj){
+      obj.tags.each(function(tag){
+        map[tag] = (map[tag] || 0) + 1;
+      })
+    });
+  
+}
+//     return function pluck(array, property) {
+//         return _.map(arr, function(obj) {
+//             let count = 0;
+//             for(let i = 0; i < obj.tags.length; i++) {
 
-            }
-        })
-    }
+//             }
+//         })
+//     }
+// }
 
 
-var genderCount;
+
+var genderCount = function(array){
+    return _.reduce(array, function(object, obj, i, array){
+        let females = _.filter(array, function(customer, index, array){
+            return customer.gender === 'female';
+        });
+        object.female = females.length;
+
+        let males = _.filter(array, function(customer, index, array){
+            return customer.gender === 'male';
+        });
+        object.male = males.length; 
+
+        let nonBinary = _.filter(array, function(customer, index, array){
+            return customer.gender === 'non-binary';
+        });
+        object['non-binary'] = nonBinary.length;
+
+        return object;
+    }, {});
+
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
