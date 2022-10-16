@@ -70,24 +70,6 @@ var oldestCustomer = function(array){
 }
 
 
-//     let arrayOfAge = [];
-//     //implement _.reduce() function to return the name of the oldest customer 
-//     let oldC = _.reduce(array, function(age, oldObj, i, array){
-//         if(age < oldObj.age) { //determine if  age is less than age key value in oldObj
-//             age = oldObj.age;
-//             if(age === oldObj.age) {
-//                 return oldObj.name; 
-//             };
-//         };
-//         // if(age === oldObj.age){
-//         //     age = oldObj.name;
-//         // };
-//         return age;
-//     }, 0);
-//     return oldC;
-// };
-
-
 var youngestCustomer= function(array){
     let youngest = 1000;
     return _.reduce(array, function(pre, curr){
@@ -102,13 +84,13 @@ var youngestCustomer= function(array){
 
 var averageBalance = function(array){
     return _.reduce(array, function(aBalance, obj, i, array){
-        aBalance = obj.balance.replace(/[$,]/g, "");
-        aBalance / array.length;
+        aBalance += obj.balance.replace(/[$,]/g, "") / array.length;
         return aBalance;
     }, 0);
 };
 
 var firstLetterCount;
+
 
 var friendFirstLetterCount;
 

@@ -196,7 +196,6 @@ _.each = function(collection, func) { //create a function expression _.each that
             func(collection[i], i, collection); //call func once for each property, passing in the arguments collection[i], i, and collection
         }
     } else { // else it's an object
-
         for(let key in collection) { //iterate through keys in collection with a for/in loop
             func(collection[key], key, collection); //call the input func on each property
         }
@@ -557,7 +556,6 @@ _.reduce = function(array, func, seed){
 
 _.extend = function(object1, object2, ...objects) { //create a function expression _.extend that takes three inputs, object1, object2, ...objects
     Object.assign(object1, object2, ...objects)  //use the Object.assign() method to assign the properties of object2 and ...objects to object1
-
     return object1; //return object1
 }
 
