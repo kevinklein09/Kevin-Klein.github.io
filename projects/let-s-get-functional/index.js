@@ -113,10 +113,27 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
-    return _.filter(array, function)
-};
+    return _.reduce(array, function(result, obj, i, array){
+        for(let i = 0; i < obj.friends.length; i++) {
+            if(name === obj.friends[i].name) {
+                result.push(obj.name);
+            }
+        }
+        return result;
+    }, [])
+}
 
-var topThreeTags;
+
+var topThreeTags = function(array);
+    return function pluck(array, property) {
+        return _.map(arr, function(obj) {
+            let count = 0;
+            for(let i = 0; i < obj.tags.length; i++) {
+
+            }
+        })
+    }
+
 
 var genderCount;
 
