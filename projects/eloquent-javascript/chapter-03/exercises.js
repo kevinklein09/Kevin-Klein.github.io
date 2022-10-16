@@ -15,14 +15,14 @@ function min(num1, num2) { //create a function min that takes in two inputs, num
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(num) {
-  if(num === 0) {
-    return true;
-  } else if(num === 1) {
-    return false;
-  } else if(num < 0) {
-    return(isEven(-num))
-  } else {
-    return(isEven(num -2));
+  if(num === 0) { //determine if input num is strictly equal to 0
+    return true; // return true
+  } else if(num === 1) { //determine if num strictly equals 1
+    return false; //return false
+  } else if(num < 0) { //determine if num is less than 0
+    return(isEven(-num)) //return isEven function with a negative num input to turn num into a positive integer
+  } else { //else
+    return(isEven(num - 2)); //return isEven function with an input of num - 2
   }
 }
 
