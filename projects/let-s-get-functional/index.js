@@ -59,10 +59,10 @@ var femaleCount = function(array){
 */
 
 var oldestCustomer = function(array){
-    let oldest = 0;
-    return _.reduce(array, function(pre, curr){
-        if(curr.age > oldest) {
-            oldest = curr.age;
+    let oldest = 0; //create a variable oldest and assign it the value 0
+    return _.reduce(array, function(pre, curr){ //return the value of invoking _.reduce function with the inputs array and an anonymous function with the inputs pre(result) and curr (current element in object)
+        if(curr.age > oldest) { //determine if age in current element in object is greater than oldest
+            oldest = curr.age; // if true, reassign oldest to the value of the 
             pre = curr.name;
         }
         return pre;
@@ -89,12 +89,32 @@ var averageBalance = function(array){
     }, 0);
 };
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    return _.reduce(array, function(result, obj, i, array){
+        if(letter.toUpperCase() === obj.name[0].toUpperCase()) {
+          result++;
+        };
+      return result;
+    }, 0);
+};
 
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter) {
+    return _.reduce(array, function(result, obj, i, array){
+        if(obj.name === customer) {
+            for(let i = 0; i < obj.friends.length; i++) {
+                if(letter.toUpperCase() === obj.friends[i].name[0].toUpperCase()) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }, 0);
+};
 
-var friendsCount;
+var friendsCount = function(array, name) {
+    return _.filter(array, function)
+};
 
 var topThreeTags;
 
