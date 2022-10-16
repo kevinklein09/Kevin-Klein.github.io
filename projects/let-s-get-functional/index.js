@@ -126,14 +126,22 @@ var friendsCount = function(array, name) {
 
 
 var topThreeTags = function(array){
-    let map = {};
+    let map = {}; //create variable map 
     _.each(array, function(obj){
-      obj.tags.each(function(tag){
+      _.each(obj.tags, function(tag){
         map[tag] = (map[tag] || 0) + 1;
       })
     });
-  
-}
+    let topArray = _.map(Object.keys(map), obj => [obj, map[obj]]).sort((a, b) => a[1] - b[1]);
+    let output = topArray.slice(-3);
+    for(let i = 0; i < output.length; i++) {
+      output[i].pop();
+    }
+    let newArray = [];
+    newArray = newArray.concat(output[0], output[1], output[2]);
+    return newArray;
+  };
+
 //     return function pluck(array, property) {
 //         return _.map(arr, function(obj) {
 //             let count = 0;

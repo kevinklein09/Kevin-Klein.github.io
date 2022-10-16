@@ -14,8 +14,8 @@ function triangles(number) { //create a function triangles that has one input, n
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() { //create a function fizzBuzz
-  for(var i = 1; i <= 15; i++) { //create a for loop to increment numbers 1-15
-    if(i % 3 === 0 && i % 5 === 0) { //create an if statement to determine if the index i is divisible by 3 AND 5 both
+  for(var i = 1; i <= 15; i++) { //create a for loop to iterate through numbers 1-15
+    if(i % 3 === 0 && i % 5 === 0) { // determine if the index i is divisible by 3 AND 5 both
       console.log("fizzbuzz"); //if true, log 'fizzbuzz' to the console
     } else if(i % 3 === 0) { //create else if statement to determine if the index i is divisible by 3
       console.log("fizz"); //if true, log 'fizz' to the console
@@ -32,60 +32,43 @@ function fizzBuzz() { //create a function fizzBuzz
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(number) { //create a function drawwChessBoard that takes one input, number
-  
-  let result = ''; //create an empty string result
-
-  let row = 1;
-  while (row <= number) { //loop to create the rows
-    let column = 1;
-    while (column <= number) { //loop to create the columns
-      if((column + row) % 2 === 0) { // if column plus row is even
-        result += ' '; // add an empty space
-      } else { // else, add a hashtag
-        result += '#';
+  var board = ""; //create a variable board and assign its value to an empty string to store the result
+  for(var y = 0; y < number; y++) { //create a for loop that iterates through input number to create the rows of the board
+    for(var x = 0; x < number; x++) { //create a for loop that iterates through number to create the columns of the board
+      if ((y + x) % 2 === 0) { //create an if statement that determines if the sum of y + x is divisible by 2. Every other number will be divisible by 2
+        board += " "; //if true, a single space is added to board
+      } else { //create an else statement
+        board += "#"; // add a single hashtag to board
       }
-      column += 1;
     }
-    result += '\n'; // add a newline symbol to end current row
-    row += 1;
+    board += "\n"; // add a break "\n" to board
   }
-  console.log(result);
+  console.log(board); //return board
 }
-/*
-// invoke function drawChessboard(3)
-  //result = ""
-  //row = 1
-  //while 1 <= 3
-    // column = 1
-    //while 1 <= 3
-      //if 2 is even
-        // result = "" + " " => " "
-      // column = 1 + 1 => 2
-    //while 2 <= 3
-      // (false)
-      // else result = " " + "#"" => " #"
-
-*/
 
 
 
 
 
+//   let result = ''; //create an empty string result
 
-
-//   var board = ""; //create a variable board and assign its value to an empty string to store the result
-//   for(var y = 0; y < number; y++) { //create a for loop that iterates through input number to create the rows of the board
-//     for(var x = 0; x < number; x++) { //create a for loop that iterates through number to create the columns of the board
-//       if ((y + x) % 2 === 0) { //create an if statement that determines if the sum of y + x is divisible by 2. Every other number will be divisible by 2
-//         board += " "; //if true, a single space is added to board
-//       } else { //create an else statement
-//         board += "#"; // add a single hashtag to board
+//   let row = 1;
+//   while (row <= number) { //loop to create the rows
+//     let column = 1;
+//     while (column <= number) { //loop to create the columns
+//       if((column + row) % 2 === 0) { // if column plus row is even
+//         result += ' '; // add an empty space
+//       } else { // else, add a hashtag
+//         result += '#'; // add a single hashtag to board
 //       }
+//       column += 1;
 //     }
-//     board += "\n"; // add a break "\n" to board
+//     result += '\n'; // add a newline symbol to end current row
+//     row += 1;
 //   }
-//   return board; //return board
+//   console.log(result);
 // }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
