@@ -49,20 +49,24 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  if(n === 0){
-    return n;
-  } else if(n < 0){
-    return n + 1 + sumBelow(n + 1);
+  if(n === 0){ //determine if n is 0
+    return n; //return n
+  } else if(n < 0){ //determine if n is a negative number
+    return n + 1 + sumBelow(n + 1); // return
   }
   return n - 1 + sumBelow(n - 1);
-
-
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-
+  if(y - x === 0){
+    return [x];
+  } else {
+  var nums = range(x, y - 1)
+  nums.push(y);
+  return nums;
+  }
 };
 
 // 7. Compute the exponent of a number.
@@ -71,6 +75,14 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  if(exp === 0){
+    return 1;
+  } else if(exp === 1){
+    return base;
+  } else if(exp < 0){
+    return 1 / (exponent(base, exp * -1));
+  }
+  return base * exponent(base, exp - 1);
 };
 
 // 8. Determine if a number is a power of two.
@@ -78,15 +90,40 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) {
+var reverse = function(string) { // evin
+  if(string.length === 0){
+    return string;
+  }
+  return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1));
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-};
+  let noSpaceOrCapital = string.replace(/\s/g, "").toLowerCase();
+  if(string.length === 1){
+    return true;
+  } else if(noSpaceOrCapital[0] === noSpaceOrCapital.slice(-1)){
+    return palindrome(noSpaceOrCapital.slice(1, -1));
+  }
+  return false;
+}
+//     if(string.length === 0){
+//     return string;
+//   }
+//   let noSpaceOrCapital = string.replace(/\s/g, "").toLowerCase();
+//   let newString = "";
+//   newString = noSpaceOrCapital.charAt(noSpaceOrCapital.length - 1) + palindrome(noSpaceOrCapital.substring(0, noSpaceOrCapital.length - 1));
+  
+//   if(newString === noSpaceOrCapital){
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -94,13 +131,31 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-};
+  if(y === 0){
+    return 0;
+  } else if(y > 0){
+    return (x + multiply(x, y - 1))
+  } else if(y < 0){
+    return -multiply(x, -y);
+  }
+}
+
+
+//   if(x === 0 || y === 0){
+//     return 0;
+//   } else if(x === 1){
+//     return y;
+//   } else {
+//     return (x + multiply(x, y - 1));
+//   }
+// };
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
