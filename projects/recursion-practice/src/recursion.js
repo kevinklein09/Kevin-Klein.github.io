@@ -6,14 +6,13 @@
 // factorial(5);  // 120
 var factorial = function(n) {
   //base
-  if(n === 0){
-    return 1;
-  } else if(n < 0){
-    return null;
+  if(n === 0){ //determine if n is strictly equal to 0
+    return 1; //return 1
+  } else if(n < 0){ //else if n is less than 0
+    return null; //return null
   }
-
   //recursion
-  return n * factorial(n - 1);
+  return n * factorial(n - 1); // return n multiplied by the recursion invocation of factorial function but with n - 1  as an input
 };
 
 // 2. Compute the sum of an array of integers.
@@ -36,14 +35,14 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-  if(n === 1){
-    return false;
-  } else if(n === 0){
-    return true;
-  } else if(n < 0){
-    return isEven(-n);
+  if(n === 1){ // determine if n is strictly equal to 1
+    return false; //return false
+  } else if(n === 0){ //determine if n is strictly equal to 0
+    return true; //return true
+  } else if(n < 0){ //determine if n is a negative number
+    return isEven(-n); // return isEven but with the input -n to return a positive number as the original invocation input
   } 
-  return isEven(n - 2);
+  return isEven(n - 2); //return recursive isEven but with n - 2 to boil down to either of the first two base cases
 };
 
 // 5. Sum all integers below a given integer.
@@ -63,7 +62,7 @@ var sumBelow = function(n) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-  
+
 };
 
 // 7. Compute the exponent of a number.
