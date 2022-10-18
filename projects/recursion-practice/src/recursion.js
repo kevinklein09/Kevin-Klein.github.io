@@ -20,25 +20,37 @@ var factorial = function(n) {
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
   //base
-  if(array.length === 1){
-    return array[0];
-  } 
-  return array[0] + sum(array.slice(1)); 
+  if(array.length === 1){ //create a base case if statement that determines if the length of array is strictly equal to 1
+    return array[0]; // return array value at index 0
+  } else if(array.length === 0){ //create a second base case if statement to determine if array is empty
+    return 0; //return 0
+  }
+  return array[0] + sum(array.slice(1)); //return the sum by adding the value of the array at index 0 to each recursive array at index 0 by invoking the sum function and using.slice()
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  if(n === 1){
+    return false;
+  } else if(n === 0){
+    return true;
+  } else if(n < 0){
+    return isEven(-n);
+  } 
+  return isEven(n - 2);
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  
 };
 
 // 6. Get the integers in range (x, y).
