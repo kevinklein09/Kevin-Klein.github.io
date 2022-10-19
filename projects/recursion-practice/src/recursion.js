@@ -59,15 +59,30 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-  if(y - x === 0){
-    return [x];
-  } else {
-  var nums = range(x, y - 1)
-  nums.push(y);
-  return nums;
+var range = function(x, y) { 
+  var emptyArray = [];
+  if(x === y){
+    return emptyArray;
+  } else if(x === y - 1 || x === y + 1){
+    return emptyArray;
   }
-};
+  if(x > y){
+    var tempNum = x - 1;
+  }
+  if(x < y){
+    var tempNum = x + 1;
+  }
+  emptyArray.push(tempNum);
+  return emptyArray.concat(range(tempNum, y));
+}
+//   if(y - x === 0){
+//     return [x];
+//   } else {
+//   var nums = range(x, y - 1)
+//   nums.push(y);
+//   return nums;
+//   }
+// };
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -90,7 +105,13 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-
+  if(n === 1){
+    return true;
+  }
+  if(n < 1){
+    return false;
+  }
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -176,32 +197,74 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if(str1.length === 0 && str2.length === 0){
+    return true;
+  }
+  if(str1[0] !== str2[0]){
+    return false;
+  }
+  if(str1[0] === str2[0]){
+    return compareStr(str1.slice(1), str2.slice(1));
+  } 
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+  if(str.length === 0){
+    return output;
+  }
+  output = createArray(str.slice(1));
+  output.unshift(str[0]);
+  return output;
 };
 
+
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, output=[]) {
+  if(array.length === 0){
+    return output;
+  }
+  output = reverseArr(array.slice(1));
+  output.push(array[0]);
+  return output;
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, output=[]) {
+  if(length === 0){
+    return output;
+  }
+  output = buildList(value, length - 1);
+  output.push(value);
+  return output;
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count=0) {
+  if(array.length === 0){
+    return count;
+  }
+  if(array[0] === value){
+    count++;
+  }
+  return countOccurrence(array.slice(1), value, count);
+
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback, output=[]) {
+  if(array.length <= 0){
+    return output;
+  } 
+  output = rMap(array.slice(1), callback);
+  output.unshift(callback(array[0]));
+  return output;
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
