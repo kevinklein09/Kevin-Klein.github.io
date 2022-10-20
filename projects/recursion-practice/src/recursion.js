@@ -19,9 +19,9 @@ var factorial = function(n) {
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
   //base
-  if(array.length === 1){ //create a base case if statement that determines if the length of array is strictly equal to 1
+  if(array.length === 1){ //base case if statement that determines if the length of array is strictly equal to 1
     return array[0]; // return array value at index 0
-  } else if(array.length === 0){ //create a second base case if statement to determine if array is empty
+  } else if(array.length === 0){ //second base case if statement to determine if array is empty
     return 0; //return 0
   }
   return array[0] + sum(array.slice(1)); //return the sum by adding the value of the array at index 0 to each recursive array at index 0 by invoking the sum function and using.slice()
@@ -35,6 +35,7 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  //base 
   if(n === 1){ // determine if n is strictly equal to 1
     return false; //return false
   } else if(n === 0){ //determine if n is strictly equal to 0
@@ -42,7 +43,8 @@ var isEven = function(n) {
   } else if(n < 0){ //determine if n is a negative number
     return isEven(-n); // return isEven but with the input -n to return a positive number as the original invocation input
   } 
-  return isEven(n - 2); //return recursive isEven but with n - 2 to boil down to either of the first two base cases
+  //recursion
+  return isEven(n - 2); //return isEven with the input n - 2 to boil down to either of the first two base cases
 };
 
 // 5. Sum all integers below a given integer.
@@ -59,30 +61,21 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) { 
-  var emptyArray = [];
+var range = function(x, y, output=[]) { 
   if(x === y){
-    return emptyArray;
+    return output;
   } else if(x === y - 1 || x === y + 1){
-    return emptyArray;
+    return output;
   }
   if(x > y){
-    var tempNum = x - 1;
+    var num = x - 1;
   }
   if(x < y){
-    var tempNum = x + 1;
+    var num = x + 1;
   }
-  emptyArray.push(tempNum);
-  return emptyArray.concat(range(tempNum, y));
+  output.push(num);
+  return output.concat(range(num, y));
 }
-//   if(y - x === 0){
-//     return [x];
-//   } else {
-//   var nums = range(x, y - 1)
-//   nums.push(y);
-//   return nums;
-//   }
-// };
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -108,7 +101,7 @@ var powerOfTwo = function(n) {
   if(n === 1){
     return true;
   }
-  if(n < 1){
+  if(n === 0){
     return false;
   }
   return powerOfTwo(n / 2);

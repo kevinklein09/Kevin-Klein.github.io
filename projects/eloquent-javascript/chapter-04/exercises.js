@@ -57,17 +57,57 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
 
+
+
+function arrayToList(array) {
+  let rest = null;
+
+  for(let i = array.length - 1; i >= 0; i--){
+    rest = { value: array[i], rest: rest};
+  }
+
+  return rest;
 }
+
+
+/*
+// invoke arraytoList([1, 2, 3])
+  //rest = null
+  //for loop going backwards
+    //2
+      //rest = { value: 3, rest: null }
+    //1
+      // rest = { value: 2, rest: { value: 3, rest: null } }
+    // 0
+      // rest = { value: 1, rest: { value: 2, rest: { value: 3, rest: null } }}
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(list, output=[]) {
+  //base
+  if(list.rest === null){
+    output.push(list.value);
+    return output;
+  }
+  //recursion
+    //add current value property to output
+    output.push(list.value); // [1]
+    return listToArray(list.rest, output)
 }
+
+console.log(listToArray(
+  {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: null
+    }
+  }
+)) // => [1, 2]
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
