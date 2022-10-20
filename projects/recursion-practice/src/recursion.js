@@ -265,6 +265,7 @@ var rMap = function(array, callback, output=[]) {
 // countKeysInObj(testobj, 'r') // 1
 // countKeysInObj(testobj, 'e') // 2
 var countKeysInObj = function(obj, key) {
+
 };
 
 // 22. Write a function that counts the number of times a value occurs in an object.
@@ -293,12 +294,29 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  //base
+  if(n < 0){
+    return null;
+  }
+  if(n < 2){
+    return n;
+  }
+  //recursion
+  return nthFibo(n-1) + nthFibo(n-2); 
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, output=[]) {
+  //base
+  if(input.length === 0){
+    return output;
+  }
+  //recursion
+  output = capitalizeWords(input.slice(0, -1));
+  output.push(input.slice(input.length - 1)[0].toUpperCase());
+  return output;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
