@@ -321,7 +321,15 @@ var capitalizeWords = function(input, output=[]) {
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, output=[]) {
+  //base
+  if(array.length === 0){
+    return output;
+  }
+  //recursion
+  output = capitalizeFirst(array.slice(1, array.length));
+  output.unshift(array[0][0].toUpperCase() + array[0].substring(1));
+  return output;
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
@@ -333,8 +341,13 @@ var capitalizeFirst = function(array) {
 //   e: {e: {e: 2}, ee: 'car'}
 // };
 // nestedEvenSum(obj1); // 10
-var nestedEvenSum = function(obj) {
-};
+// var nestedEvenSum = function(obj, sum=0) {
+//   for(var key in obj){
+//     if(obj[key] % 2 === 0){
+//       sum += obj[key];
+//     }
+//   }
+// };
 
 // 29. Flatten an array containing nested arrays.
 // Example: flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
@@ -343,7 +356,17 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj={}) {
+  if(str.length === 0){
+    return obj;
+  }
+  letterTally(str.substring(1), obj);
+  if(obj[str[0]] === undefined) {
+    obj[str[0]] = 1;
+  } else {
+    obj[str[0]] += 1;
+  }
+  return obj;
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -351,19 +374,35 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, output=[]) {
+  if(list.length === 0){
+    return output;
+  }
+  output = compress(list.slice(1));
+  if(list[0] !== output[0]){
+    output.unshift(list[0]);
+  }
+  return output;
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
-var augmentElements = function(array, aug) {
+var augmentElements = function(array, aug, output=[]) {
+  if(array.length === 0){
+    return output;
+  }
+  output = augmentElements(array.slice(1), aug);
+  array[0].push(aug);
+  output.unshift(array[0]);
+  return output;
 };
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array) {
+  
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
