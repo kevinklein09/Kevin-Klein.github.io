@@ -374,6 +374,7 @@ var letterTally = function(str, obj={}) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
+
 var compress = function(list, output=[]) {
   if(list.length === 0){
     return output;
@@ -401,15 +402,38 @@ var augmentElements = function(array, aug, output=[]) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
-  
+var minimizeZeroes = function(array, output=[]) {
+  if(array.length === 0){
+    return output;
+  }
+  output = minimizeZeroes(array.slice(1));
+  if(array[0] === 0 ^ output[0] === 0 || array[0] !== 0) {
+    output.unshift(array[0]);
+  }
+  return output;
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output=[]) {
+  if(array.length === 0) {
+    return output;
+  }
+  output = alternateSign(array.slice(0, array.length - 1));
+  var arrLength = array.length;
+  if(arrLength % 2 === 0) {
+    if(array[arrLength - 1] > 0) {
+      array[arrLength - 1] = -array[arrLength - 1];
+    }
+  } else {
+    if(array[arrLength - 1] < 0) {
+      array[arrLength - 1] = -array[arrLength - 1];
+    }
+  }
+  output.push(array[arrLength - 1]);
+  return output;
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
