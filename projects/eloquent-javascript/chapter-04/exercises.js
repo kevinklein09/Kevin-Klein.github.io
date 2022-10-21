@@ -129,9 +129,32 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+  // determine if x AND y are both NOT OBJECTS
+  if(typeof x !== 'object' && typeof y !== 'object'){
+    return x === y;
+  }
+  //determine if EITHER x or y is not an object
+  if(typeof x !== 'object' || typeof y !== 'object'){
+    return false;
+  }
+  // create arrays of each object's keys
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
+  // determine if xKeys and yKeys don't have the same length
+  if(xKeys.length !== yKeys.length){
+    return false;
+  }
+  //iterate through Xkeys to see if properties match
+  for(let i = 0; i < xKeys.length; i++){
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+      return false;
+    }
+  }
+  return true;
 }
+// console.log(deepEqual(2, 2)); // => true
+// console.log({ a: 1 } === {a: 1}); // usually is false - objects are unique - but we need to make a function that compares two objects to see if they are identical
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
