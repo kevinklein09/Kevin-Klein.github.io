@@ -440,6 +440,33 @@ var alternateSign = function(array, output=[]) {
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  if(str.length === 0){
+    return '';
+  }
+  var newStr = numToText(str.substring(0, str.length - 1));
+  var replace;
+  if(str[str.length - 1] === '1'){
+    replace = 'one';
+  } else if(str[str.length - 1] === '2'){
+    replace = 'two';
+  } else if(str[str.length - 1] === '3'){
+    replace = 'three';
+  } else if(str[str.length - 1] === '4'){
+    replace = 'four';
+  } else if(str[str.length - 1] === '5'){
+    replace = 'five';
+  } else if(str[str.length - 1] === '6'){
+    replace = 'six';
+  } else if(str[str.length - 1] === '7'){
+    replace = 'seven';
+  } else if(str[str.length - 1] === '8'){
+    replace = 'eight';
+  } else if(str[str.length - 1] === '9'){
+    replace = 'nine';
+  } else {
+    replace = str[str.length - 1];
+  }
+  return newStr + replace;
 };
 
 // *** EXTRA CREDIT ***
