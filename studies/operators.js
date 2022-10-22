@@ -11,8 +11,8 @@
  * false.
  * 5: Unary operators are special operators that consider a single operand and perform different 
  * types of operations on that single operand.
- * 6: A ternary operator evaluates a condition and executes a block of code based on the 
- * condition.
+ * 6: Also known as the conditional operator, the ternary operator evaluates a condition and executes 
+ * a block of code based on the condition.
  */
 
 // 1. Arithmetic Operators //
@@ -84,11 +84,53 @@
     console.log(!true); // prints => false
 
 // 5. Unary Operators // 
-    /*
+    /* Unary operators are special operators that consider a single operand and perform different 
+     * types of operations on that single operand.
      * 
-     * 
-     * 
-     * 
-     * 
-     * 
+     * NAME:                    OPERATOR:               EXAMPLE:            EXPLANATION:
+     * Type of                   typeof                 typeof x              Evaluates and returns a string of the type of the operand value
+     * Delete                    delete                 delete x              Removes a property from an object, including arrays
+     * Unary plus                 +                     +x                    Attempts to convert the following operand value into a number. Works with numbers, strings that contain numbers as a string, and boolean values, converting true to 1 and false to 0
+     * Unary negation             -                     -x                    Behaves like unary plus, yet negates the value
+     * Increment                  ++                    x++                   Adds one to the operand and returns the result as its value
+     * Decrement                  --                    x--                   Subtracts one from the operand and returns the result as its value
      */
+    //  Here are a few examples:
+    var x = 1;
+    var y = '2';
+    var z = true;
+    console.log(typeof x); // prints => 'number'
+    console.log(x++); // prints => 2
+    console.log(x--); // prints => 0
+    console.log(+z); // prints => 1
+    console.log(-y); // prints => -2
+
+// 6. Ternary Operator // 
+    /* Also known as the conditional operator, the ternary operator evaluates a condition and executes 
+     * a block of code based on the condition. It is the only operator in Javascript that takes in
+     * three operands. The ternary operator is often used as an alternative to an if/else statement.
+     * 
+     * SYNTAX:
+     * condition ? expressionIfTrue : expressionIfFalse
+     */
+    // Here's an example of an if/else statement:
+    if (age <= 21) {
+        console.log("You can have a beer!");
+    } else {
+        "You can leave the bar!";
+    }
+    // And here's the same example using a ternary operator:
+    age >= 21 ? "You can have a beer!" : "You can leave the bar!";
+
+    /* Similar to how if/else if/else statements can be chained together, so can a tenrary operator 
+     * with the following syntax:
+     *
+     * condition1 ? value1
+     *      : condition2 ? value2
+     *      : condition3 ? value3
+     *      : value4
+     */  
+    
+
+    
+
