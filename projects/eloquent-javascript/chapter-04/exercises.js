@@ -132,7 +132,7 @@ function prepend(element, list) { //create an array prepend takes the inputs ele
 ////////////////////////////////////////////////////////////////////////////////
 
 function nth(list, number) { //create a function nth which takes in the inputs list and number and returns the element at the given position in the list 
-  return listToArray(list)[number]; // use recursion by returning the invocation of listToArray to return the element at the given number position in the list
+  return listToArray(list)[number]; // return the invocation of listToArray to return the element at the given number position in the list
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +142,7 @@ function nth(list, number) { //create a function nth which takes in the inputs l
 function deepEqual(x, y) {
   // determine if x AND y are both NOT OBJECTS
   if(typeof x !== 'object' && typeof y !== 'object'){
-    return x === y;
+    return x === y; // return the boolean value of x strictly equals y 
   }
   //determine if EITHER x or y is not an object
   if(typeof x !== 'object' || typeof y !== 'object'){

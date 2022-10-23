@@ -28,7 +28,7 @@ var maleCount = function(array) {
         //return true if the input customer is male
         return customer.gender === 'male';
     }); // => [<male>, <male>, <male>]
-    return males.length;
+    return males.length; //return the length of males array
 };
 
 var femaleCount = function(array){
@@ -45,7 +45,7 @@ var femaleCount = function(array){
         }
         return acc; // returns 1 
     }, 0);
-    return numFemales;
+    return numFemales; //return numFemales
 };
 
 /*
@@ -61,37 +61,37 @@ var femaleCount = function(array){
 
 var oldestCustomer = function(array){
     let oldest = 0; //create a variable oldest and assign it the value 0
-    return _.reduce(array, function(pre, curr){ //return the value of invoking _.reduce function with the inputs array and an anonymous function with the inputs pre(result) and curr (current element in object)
+    return _.reduce(array, function(pre, curr){ //return the value of invoking _.reduce function with the inputs array, a callback function with the inputs pre(result) and curr (current element in object), and a sseed of a string literal
         if(curr.age > oldest) { //determine if age in current element in object is greater than oldest
-            oldest = curr.age; // if true, reassign oldest to the value of the 
-            pre = curr.name;
+            oldest = curr.age; // if true, reassign oldest to the value of the current customer element's property age value
+            pre = curr.name; // assign pre to the value of the current customer element's property name value
         }
-        return pre;
+        return pre; //return pre to get the name of the oldest customer
     }, '');
 }
 
 
 var youngestCustomer= function(array){
-    let youngest = 1000;
-    return _.reduce(array, function(pre, curr){
-        if(curr.age < youngest) {
-            youngest = curr.age;
-            pre = curr.name;
+    let youngest = 1000; // create variable youngest and set it to a impossibly high number for the age of a person, like 1000
+    return _.reduce(array, function(pre, curr){ //return the value of invoking _.reduce function with the inputs array, a callback function with the inputs pre and curr, and a seed of of a string literal
+        if(curr.age < youngest) { //determine if the value of the age property at the current iteration of the object is less than youngest
+            youngest = curr.age; // assign youngest to the value of the age property 
+            pre = curr.name; //assign pre to the value of the name property 
         }
-        return pre;
+        return pre; //return pre
     }, '');
 };
 
 
 var averageBalance = function(array){
-    return _.reduce(array, function(aBalance, obj, i, array){
-        aBalance += obj.balance.replace(/[$,]/g, "") / array.length;
-        return aBalance;
+    return _.reduce(array, function(aBalance, obj, i, array){ // return the value of invoking _.reduce  with the inputs array, a callback function with the inputs aBalance, obj, i, and array, and a seed of 0
+        aBalance += obj.balance.replace(/[$,]/g, "") / array.length; // assign aBalance to the value of itself plus the value of the current obj's balance property, using the replace method and regex to eliminate all dollar signs and commas 
+        return aBalance; //return aBalance
     }, 0);
 };
 
 var firstLetterCount = function(array, letter){
-    return _.reduce(array, function(result, obj, i, array){
+    return _.reduce(array, function(result, obj, i, array){ 
         if(letter.toUpperCase() === obj.name[0].toUpperCase()) {
           result++;
         };
