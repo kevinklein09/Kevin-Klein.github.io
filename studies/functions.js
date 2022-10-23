@@ -58,7 +58,7 @@
         console.log(message);
      }
      // Now let's invoke our function:
-     myMessage("Hello World!"); // print => "Hello World!"
+     myMessage("Hello World!"); // prints => "Hello World!"
 
 // 3. Function Expressions
      /* Another way to create a function is with the function expression. This is  
