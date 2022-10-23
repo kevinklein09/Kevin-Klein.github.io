@@ -20,7 +20,7 @@
  * process is called HOISTING. 
  */
 
-// 1. Declaration //
+// 1. Declaration 
     /* We must use a keyword to first declare our variable, followed by a unique name
      * that represents the intended value or purpose of the variable. If the variable is 
      * to be comprised of two words, it is a common practice to type out the variable name 
@@ -43,7 +43,7 @@
     var firstName;
     console.log(firstName); // prints => undefined
 
-// 2. Initialization/Assignment //
+// 2. Initialization/Assignment 
     /* For the second phase of using a variable, we initialize the variable by assigning it 
      * to a specific value using the assignment operator (=).
      */
@@ -54,13 +54,13 @@
     var firstName = "Kevin";
     console.log(firstName); // prints => Kevin
 
-// 3. Re-assignment //
+// 3. Re-assignment 
     /* A variable's value can be changed or updated later in our code. 
      */
     firstName = "Clem";
     console.log(firstName); // prints => Clem
 
-// 4. Keywords //
+// 4. Keywords 
     /* Variables are not limited to being declared with the var keyword only. There are in 
      * fact a total of 3 keywords that we can use to declare a variable: var, let, const. 
      */ 
@@ -158,7 +158,7 @@
         a = 10;
         console.log(a); // prints => TypeError: Assignment to constant variable.
 
-// 5. Hoisting // 
+// 5. Hoisting
         /* We can use our code before it has been declared and/or initialized in Javascript.
          * This is because of a mechanism called hoisting, which is when variable and function 
          * declarations are pulled to the top of their current scope before code execution. 

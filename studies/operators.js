@@ -15,7 +15,7 @@
  * a block of code based on the condition.
  */
 
-// 1. Arithmetic Operators //
+// 1. Arithmetic Operators 
     /* Arithmetic operators are used to perform arithmetic calculations on numbers.
      * OPERATOR              DESCRIPTION                           EXAMPLE
      *      +                   Addition                            x + y
@@ -30,7 +30,7 @@
     var y = 2;
     console.log(x % y); // prints => 1
 
-// 2. Assignment Operators //
+// 2. Assignment Operators 
     /* Assignment operators are used to assign values to variables. 
      *
      * NAME:                        OPERATOR:         EXAMPLE:             MEANING:
@@ -46,7 +46,7 @@
     var x = 5;
     console.log(x += 4) // prints => 9
 
-// 3. Comparison Operators // 
+// 3. Comparison Operators 
     /* Comparison operators are used to compare two values and return a boolean value, either
      * true or false.
      * 
@@ -68,7 +68,7 @@
     console.log(x === z) // prints => false
     console.log(x < 8) // prints => true
 
-// 4. Logical Operators // 
+// 4. Logical Operators 
     /* Logical operators perform logical operations and return a boolean value, either true or 
      * false.
      * 
@@ -83,7 +83,7 @@
     console.log(true || false); // prints => true
     console.log(!true); // prints => false
 
-// 5. Unary Operators // 
+// 5. Unary Operators  
     /* Unary operators are special operators that consider a single operand and perform different 
      * types of operations on that single operand.
      * 
@@ -105,7 +105,7 @@
     console.log(+z); // prints => 1
     console.log(-y); // prints => -2
 
-// 6. Ternary Operator // 
+// 6. Ternary Operator  
     /* Also known as the conditional operator, the ternary operator evaluates a condition and executes 
      * a block of code based on the condition. It is the only operator in Javascript that takes in
      * three operands. The ternary operator is often used as an alternative to an if/else statement.
