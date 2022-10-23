@@ -91,25 +91,25 @@ var averageBalance = function(array){
 };
 
 var firstLetterCount = function(array, letter){
-    return _.reduce(array, function(result, obj, i, array){ 
-        if(letter.toUpperCase() === obj.name[0].toUpperCase()) {
-          result++;
+    return _.reduce(array, function(result, obj, i, array){  // return the value of invoking reduce with the inputs array, a callback function  with the inputs results, obj, i, and array, and a seed of 0
+        if(letter.toUpperCase() === obj.name[0].toUpperCase()) { //determine if input letter uppercased is strictly equal to the character at index zero of the obj property name value
+          result++; // increment result by 1
         };
-      return result;
+      return result; // return result
     }, 0);
 };
 
 
-var friendFirstLetterCount = function(array, customer, letter) {
-    return _.reduce(array, function(result, obj, i, array){
-        if(obj.name === customer) {
-            for(let i = 0; i < obj.friends.length; i++) {
-                if(letter.toUpperCase() === obj.friends[i].name[0].toUpperCase()) {
-                    result++;
+var friendFirstLetterCount = function(array, customer, letter) { //create a function friendFirstLetterCount that takes in three inputs, array, customer, and letter
+    return _.reduce(array, function(result, obj, i, array){ // return the value of invoking  _.reduce with the inputs result, obj, i, and array
+        if(obj.name === customer) { // determine if obj name property is strictly equal to the input customer
+            for(let i = 0; i < obj.friends.length; i++) { //iterate through the friends property array in current obj element
+                if(letter.toUpperCase() === obj.friends[i].name[0].toUpperCase()) { //determine if input letter uppercased is strictly equal to each iteration of the friends proeprty array at the character of index 0, uppercased
+                    result++; //increment result by 1
                 }
             }
         }
-        return result;
+        return result; //return result
     }, 0);
 };
 
