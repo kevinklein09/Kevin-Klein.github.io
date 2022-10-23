@@ -182,49 +182,49 @@ var compareStr = function(str1, str2) { //create function compareStr with two in
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str, output=[]){
-  if(str.length === 0){
-    return output;
+var createArray = function(str, output=[]){ //create function createArray that takes inputs str and output assign to an array literal
+  if(str.length === 0){ //determine if length of str is strictly equal to 0
+    return output; //return output
   }
-  output = createArray(str.slice(1));
-  output.unshift(str[0]);
-  return output;
+  output = createArray(str.slice(1)); //assign value of output to recursive call of createArray with input str sliced at 1 index
+  output.unshift(str[0]); //add character at index 0 of str to the beginning of output array
+  return output; //return output
 };
 
 
 // 17. Reverse the order of an array
-var reverseArr = function (array, output=[]) {
-  if(array.length === 0){
-    return output;
+var reverseArr = function (array, output=[]) { //create function reverseArr that takes in two inputs, array and output assigned to an array literal
+  if(array.length === 0){ //determine if length of array is strictly equal to 0
+    return output; //return output
   }
-  output = reverseArr(array.slice(1));
-  output.push(array[0]);
-  return output;
+  output = reverseArr(array.slice(1)); //assign value of output to recursive call of reverseArr with input array sliced at 1 index
+  output.push(array[0]); //push array at index 0 into output
+  return output; //return output
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length, output=[]) {
-  if(length === 0){
-    return output;
+var buildList = function(value, length, output=[]) { //create function buildList that takes in inputs value, length, and output assigned to an array literal
+  if(length === 0){ //determine if length is strictly equal to 0
+    return output; //return output
   }
-  output = buildList(value, length - 1);
-  output.push(value);
-  return output;
+  output = buildList(value, length - 1); //assign value of output to recursive call of buildList with inputs value and length minus 1
+  output.push(value); //push value into output
+  return output; //return output
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value, count=0) {
-  if(array.length === 0){
-    return count;
+var countOccurrence = function(array, value, count=0) { //create function countOccurence that takes in inputs array, value and count assigned to 0
+  if(array.length === 0){ //determine if length of array is strictly equal to 0
+    return count; //return count
   }
-  if(array[0] === value){
-    count++;
+  if(array[0] === value){ //determine if item at 0 index of array is equal to value
+    count++; //increment count by one
   }
-  return countOccurrence(array.slice(1), value, count);
+  return countOccurrence(array.slice(1), value, count); //return recursive call of countOccurence with inputs array sliced at 1 index, value, and count
 
 };
 
