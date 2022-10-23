@@ -54,27 +54,27 @@ var sumBelow = function(n) {
   if(n === 0){ //determine if n is 0
     return n; //return n
   } else if(n < 0){ //determine if n is a negative number
-    return n + 1 + sumBelow(n + 1); // return
+    return n + 1 + sumBelow(n + 1); // return n plus 1 plus recursive invocation of sumBelow with n + 1 as an input
   }
-  return n - 1 + sumBelow(n - 1);
+  return n - 1 + sumBelow(n - 1); //return n minus 1 plus recursive invocation of sumBelow with n - 1 as an input
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y, output=[]) { 
-  if(x === y){
-    return output;
-  } else if(x === y - 1 || x === y + 1){
-    return output;
+var range = function(x, y, output=[]) {  //create a function range with the inputs x, y, and output equal to an array literal
+  if(x === y){ //determine if x is strictly equal to y
+    return output; //return output
+  } else if(x === y - 1 || x === y + 1){ //else determine if x is strictly equal to y minus 1 OR x is strictly equal to y plus 1 to see if the input numbers are the next number up or down from each other
+    return output; //return output
   }
-  if(x > y){
-    var num = x - 1;
+  if(x > y){ //determine if x is greater than y
+    var num = x - 1; // create variable num and assign it to the value of x minus 1
   }
-  if(x < y){
-    var num = x + 1;
+  if(x < y){ //determine if x is greater than y
+    var num = x + 1; //create variable num and assign it to the value of x plus 1
   }
-  output.push(num);
-  return output.concat(range(num, y));
+  output.push(num); //push num to output
+  return output.concat(range(num, y)); //return output concacted with recursively calling range with the inputs num and y
 }
 
 // 7. Compute the exponent of a number.
@@ -82,62 +82,50 @@ var range = function(x, y, output=[]) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
-  if(exp === 0){
-    return 1;
-  } else if(exp === 1){
-    return base;
-  } else if(exp < 0){
-    return 1 / (exponent(base, exp * -1));
+var exponent = function(base, exp) { //create function exponenent with the inputs base and exp
+  if(exp === 0){ //determine if exp is strictly equal to 0
+    return 1; //return 1
+  } else if(exp === 1){ //else determine if exp is strcitly equal to 1
+    return base; //return base
+  } else if(exp < 0){ //else determine if exp is less than 0
+    return 1 / (exponent(base, exp * -1)); //return 1 divided by recursively calling exponent with the inputs base and exp mulitiplied by negative 1
   }
-  return base * exponent(base, exp - 1);
+  return base * exponent(base, exp - 1); //return base multiplied by recursively calling exponent with the inputs base and exp minus 1
 };
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {
-  if(n === 1){
-    return true;
+var powerOfTwo = function(n) { //create a function powerOfTwo with the input n
+  if(n === 1){ //determine if n is strictly equal to 1
+    return true; //return true
   }
-  if(n === 0){
-    return false;
+  if(n === 0){ //determine if n is strictly equal to 0
+    return false; //determine false
   }
-  return powerOfTwo(n / 2);
+  return powerOfTwo(n / 2); //return recusive call of powerOfTwo with the input n divided by 2
 };
 
 // 9. Write a function that accepts a string a reverses it.
-var reverse = function(string) { // evin
-  if(string.length === 0){
-    return string;
+var reverse = function(string) { // create a function reverse with the input string
+  if(string.length === 0){ //determine if length of string is strictly eqaul to 0
+    return string; //return string
   }
-  return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1));
+  return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1)); //return the last character of string plus the recursive invocation of reverse with a substring 
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
-  let noSpaceOrCapital = string.replace(/\s/g, "").toLowerCase();
-  if(string.length === 1){
-    return true;
-  } else if(noSpaceOrCapital[0] === noSpaceOrCapital.slice(-1)){
-    return palindrome(noSpaceOrCapital.slice(1, -1));
+var palindrome = function(string) { //create a function palindrome that takes in one input, string
+  let noSpaceOrCapital = string.replace(/\s/g, "").toLowerCase(); //create variable noSpaceOrCapital to an updated value of string without any spaces or capital letters, using .replaceAll and regex, uncapitalized
+  if(string.length === 1){ //determine if length of string is equal to 1
+    return true; //return true
+  } else if(noSpaceOrCapital[0] === noSpaceOrCapital.slice(-1)){ //else determine if the character in noSpaceOrCapital at index 0 is strictly equal to the last character in noSpaceOrCapital
+    return palindrome(noSpaceOrCapital.slice(1, -1)); //return recursive call of palindrome with input noSpaceOrCapital with first and last characters sliced off
   }
-  return false;
+  return false; //return false
 }
-//     if(string.length === 0){
-//     return string;
-//   }
-//   let noSpaceOrCapital = string.replace(/\s/g, "").toLowerCase();
-//   let newString = "";
-//   newString = noSpaceOrCapital.charAt(noSpaceOrCapital.length - 1) + palindrome(noSpaceOrCapital.substring(0, noSpaceOrCapital.length - 1));
-  
-//   if(newString === noSpaceOrCapital){
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
+
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
@@ -151,25 +139,16 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
-var multiply = function(x, y) {
-  if(y === 0){
-    return 0;
-  } else if(y > 0){
-    return (x + multiply(x, y - 1))
-  } else if(y < 0){
-    return -multiply(x, -y);
+var multiply = function(x, y) { //create function multiply with two inputs x and y
+  if(y === 0){ //determine if y is strictly equal to 0
+    return 0; //return 0
+  } else if(y > 0){ //else determine if y is less than 0
+    return (x + multiply(x, y - 1)) //return x plus recursive call of multiply with inputs x and y minus 1
+  } else if(y < 0){ //else determine if y is less than 0
+    return -multiply(x, -y); //return negative invocation of mutliply with inputs x and negative y
   }
 }
 
-
-//   if(x === 0 || y === 0){
-//     return 0;
-//   } else if(x === 1){
-//     return y;
-//   } else {
-//     return (x + multiply(x, y - 1));
-//   }
-// };
 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
@@ -189,15 +168,15 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
-var compareStr = function(str1, str2) {
-  if(str1.length === 0 && str2.length === 0){
-    return true;
+var compareStr = function(str1, str2) { //create function compareStr with two inputs str1 and str2
+  if(str1.length === 0 && str2.length === 0){ //determine if length of str1 AND str2 is strictly equal to 0 
+    return true; //return true
   }
-  if(str1[0] !== str2[0]){
-    return false;
+  if(str1[0] !== str2[0]){ //determine if character at index 0 in str1 is not equal to character at index 0 in str2
+    return false; //return false
   }
-  if(str1[0] === str2[0]){
-    return compareStr(str1.slice(1), str2.slice(1));
+  if(str1[0] === str2[0]){ //determine if character at index 0 of str1 is strictly equal to character at index 0 of str2
+    return compareStr(str1.slice(1), str2.slice(1)); //return recursive call of compareStr with inputs str1 sliced at the 1 index and str2 sliced at the 1 index
   } 
 };
 
