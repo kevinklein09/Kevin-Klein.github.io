@@ -120,7 +120,7 @@ console.log(listToArray(
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend(element, list) {
+function prepend(element, list) { //create an array prepend takes the inputs element and list and creates a new list that adds the element to the front of the input list
   return { //return an object with a property key value assigned to the input element and a property key rest assigned to the input list
     value: element,
     rest: list
@@ -131,8 +131,8 @@ function prepend(element, list) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, number) { //create a function nth which takes in the inputs list and number and returns the element at the given position in the list 
+  return listToArray(list)[number]; // use recursion by returning the invocation of listToArray to return the element at the given number position in the list
 }
 
 ////////////////////////////////////////////////////////////////////////////////
