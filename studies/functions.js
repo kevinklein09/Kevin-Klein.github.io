@@ -108,4 +108,24 @@
       */
 
 // 4. Function Scope
+     // Functions can see and modify variables in parent or global scopes:
+
+    var first = 'Kevin'; // first is a globally scoped variable
+    function addLastName(last) {
+        return first + ' ' + last; 
+    }
+    console.log(addLastName('Klein')); // prints => 'Kevin Klein'
+
+     /* Each function creates a new scope in Javascript. This means that variables that 
+      * are defined inside a function - called local variables - are not visible/accessible 
+      * from outside of the function. 
+      * 
+      * 
+      * 
+      * 
+      */
+
+     
+
+
 
