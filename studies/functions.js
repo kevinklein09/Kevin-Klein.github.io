@@ -7,9 +7,8 @@
  * 2: When declared, a function can be written to take in one or more parameters. When
  * invoked, a function can take in arguments.  
  * 3: We can assign functions to a variable with function expression. 
- * 4: Functions can OPTIONALLY take inputs, and OPTIONALLY return a single value.
- * 5: Functions have scope. 
- * 6: Functions can have closure. 
+ * 4: Functions have scope. 
+ * 5: Functions can have closure. 
  */
 
 // 1. Function Declaration and Invocation 
@@ -36,6 +35,9 @@
     addTwo(10)
     console.log(addTwo(10)) // prints => 12
 
+    /* The return statement stops the execution of a function and returns a value.
+     */
+
 // 2. Function Parameters and Arguments
     /* When declared, a function can be written to take in zero, one, or multiple parameters. When
      * using multiple parameters, you must separate each by a comma. Here is the synatx of a function:
@@ -55,6 +57,25 @@
      // Now let's invoke our function and pass in an argument:
 
      myMessage("Hello World!"); // prints => "Hello World!"
+
+     /* Functions can optionally take inputs/parameters. This means that is isn't necessary to 
+      * pass in an argument in place of a parameter every time that you call a function, allowing
+      * you to pass fewer arguments to the function. Optional parameters are called default parameters.
+      */
+
+     function multiplyBy(x, y=1) { // y is an optional default parameter 
+        return x * y;
+      }
+      console.log(multiplyBy(5)); // prints => 5
+      console.log(multiplyBy(5, 10)); // prints = 50
+
+      /** It is also optional to return a value in a function. 
+       * 
+       * 
+       * 
+       * 
+       */
+     
 
 // 3. Function Expressions
      /* Another way to create a function is with the function expression. A function   
