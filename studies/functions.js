@@ -5,7 +5,8 @@
  * over and over is to write a function to wrap that code and reuse it. 
  * 1: There are two phases to using functions - declaration and invocation.
  * 2: When declared, a function can be written to take in one or more parameters. When
- * invoked, a function can take in arguments.  
+ * invoked, a function can take in arguments. Functions can optionally take in parameters
+ * and optionally return a single value. 
  * 3: We can assign functions to a variable with function expression. 
  * 4: Functions have scope. 
  * 5: Functions can have closure. 
