@@ -140,10 +140,28 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) { //create function multiply with two inputs x and y
+//   var isNeg = false;
+//   if(x < 0) {
+//     isNeg = !isNeg;
+//     x = -x;
+//   }
+//   if (y < 0) {
+//     isNeg = !isNeg;
+//     y = -y;
+//   }
+//   if(y === 0 || x === 0) {
+//     return 0;
+//   }
+//   if (y === 1) {
+//     return x;
+//   }
+//   var res = x + multiply(x, y-1) 
+//   return isNeg ? -res : res;
+// }
   if(y === 0){ //determine if y is strictly equal to 0
     return 0; //return 0
   } else if(y > 0){ //else determine if y is less than 0
-    return (x + multiply(x, y - 1)) //return x plus recursive call of multiply with inputs x and y minus 1
+    return (x + multiply(x, y - 1)); //return x plus recursive call of multiply with inputs x and y minus 1
   } else if(y < 0){ //else determine if y is less than 0
     return -multiply(x, -y); //return negative invocation of mutliply with inputs x and negative y
   }
@@ -230,13 +248,13 @@ var countOccurrence = function(array, value, count=0) { //create function countO
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback, output=[]) {
-  if(array.length <= 0){
-    return output;
+var rMap = function(array, callback, output=[]) { //create a function rMap that takes in the inputs array, a callback function callback, and output assigned to an array literal
+  if(array.length <= 0){ //determine if length of array is less than or equal to 0
+    return output; //return output
   } 
-  output = rMap(array.slice(1), callback);
-  output.unshift(callback(array[0]));
-  return output;
+  output = rMap(array.slice(1), callback); //assign value of output to recursive call of rMap with inputs array sliced at 1 index and callback
+  output.unshift(callback(array[0])); // unshift to the beginning of the output array the value of calling the callback function with the input array[0]
+  return output; //return output
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -272,43 +290,43 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n) { //create a function nthFibo that takes in the input n
   //base
-  if(n < 0){
-    return null;
+  if(n < 0){ //determine if n is less than 0
+    return null; //return null
   }
-  if(n < 2){
-    return n;
+  if(n < 2){ //determine if n is less than 2
+    return n; //return n
   }
   //recursion
-  return nthFibo(n-1) + nthFibo(n-2); 
+  return nthFibo(n-1) + nthFibo(n-2);  //return recursive call of nthFibo with input n minus 1 PLUS recursive call of nthFibo with input n minus 2
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input, output=[]) {
+var capitalizeWords = function(input, output=[]) { //create function capitalizeWords that takes in inputs input and output assigned to an array literal
   //base
-  if(input.length === 0){
-    return output;
+  if(input.length === 0){ //determine if length of input is strictly equal to 0
+    return output; //return outout
   }
   //recursion
-  output = capitalizeWords(input.slice(0, -1));
-  output.push(input.slice(input.length - 1)[0].toUpperCase());
-  return output;
+  output = capitalizeWords(input.slice(0, -1)); //assign value of output to recursive call of capitalizeWords with input input with last character sliced off
+  output.push(input.slice(input.length - 1)[0].toUpperCase()); // push uppercased input character at index 0 into output
+  return output; //return output
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array, output=[]) {
+var capitalizeFirst = function(array, output=[]) { //create a function capitalizeFirst that takes in inputs array and output assigned to an array literal
   //base
-  if(array.length === 0){
-    return output;
+  if(array.length === 0){ //determine if length of array is strictly equal to 0
+    return output; //return output
   }
   //recursion
-  output = capitalizeFirst(array.slice(1, array.length));
-  output.unshift(array[0][0].toUpperCase() + array[0].substring(1));
-  return output;
+  output = capitalizeFirst(array.slice(1, array.length)); // assign value of output to recursive call of capitalizeFirst with input array with first character sliced off
+  output.unshift(array[0][0].toUpperCase() + array[0].substring(1)); // unshift uppercased first character of first array item plus a new substring without the first character
+  return output; //return output
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
@@ -335,17 +353,17 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj={}) {
-  if(str.length === 0){
-    return obj;
+var letterTally = function(str, obj={}) { // create a function letterTally that takes in inputs str and obj assigned to an object literal
+  if(str.length === 0){ //determine if length of str is strictly equal to 0
+    return obj; //return obj
   }
-  letterTally(str.substring(1), obj);
-  if(obj[str[0]] === undefined) {
-    obj[str[0]] = 1;
-  } else {
-    obj[str[0]] += 1;
+  letterTally(str.substring(1), obj); //recursively call letterTally with inputs str.substring(1) and obj
+  if(obj[str[0]] === undefined) { //determine if index 0 of str in obj is strictly equal to undefined
+    obj[str[0]] = 1; // assign index 0 of str in obj to 1
+  } else { //else
+    obj[str[0]] += 1; //add 1 to index 0 of str in obj
   }
-  return obj;
+  return obj; //return obj
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -354,88 +372,88 @@ var letterTally = function(str, obj={}) {
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 
-var compress = function(list, output=[]) {
-  if(list.length === 0){
-    return output;
+var compress = function(list, output=[]) { //create function compress that takes in two inputs list and output assgined to an array literal
+  if(list.length === 0){ //determine if length of list is strictly equal to 0
+    return output; //return output
   }
-  output = compress(list.slice(1));
-  if(list[0] !== output[0]){
-    output.unshift(list[0]);
+  output = compress(list.slice(1)); //assign value of output to recursive call of compress with input list sliced at 1 index
+  if(list[0] !== output[0]){ //determine if list at index 0 is not equal to output at index 0
+    output.unshift(list[0]); //unshift list at index 0 to output
   }
-  return output;
+  return output; //return output
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
-var augmentElements = function(array, aug, output=[]) {
-  if(array.length === 0){
-    return output;
+var augmentElements = function(array, aug, output=[]) { //create a function augmentElements that takes in the inputs array, aug, and output assigned to an array literal
+  if(array.length === 0){ //determine if length of array is strictly equal to 0
+    return output; //return output
   }
-  output = augmentElements(array.slice(1), aug);
-  array[0].push(aug);
-  output.unshift(array[0]);
-  return output;
+  output = augmentElements(array.slice(1), aug); //assign output the value of recursive call of augmentElements with inputs array sliced at 1 index and aug
+  array[0].push(aug); //push aug into the 0 index of array
+  output.unshift(array[0]); // unshift array at index 0 into output
+  return output; //return output
 };
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array, output=[]) {
-  if(array.length === 0){
-    return output;
+var minimizeZeroes = function(array, output=[]) { //create a function minimizeZeroes that takes in inputs array and output assigned to an array literal
+  if(array.length === 0){ //determine if length of array is strictly equal to 0
+    return output; //return output
   }
-  output = minimizeZeroes(array.slice(1));
-  if(array[0] === 0 ^ output[0] === 0 || array[0] !== 0) {
-    output.unshift(array[0]);
+  output = minimizeZeroes(array.slice(1)); // assign value of output to recursive call of minimizeZeroes with input array sliced at 1 index
+  if(array[0] === 0 ^ output[0] === 0 || array[0] !== 0) { //determine if array at index 0 is strictly equal to 0 and using XOR operator to determine if output at index 0 is strictly equal to 0 OR array at index 0 is not equal to 0
+    output.unshift(array[0]); //unshift array at index 0 to output
   }
-  return output;
+  return output; //return output
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array, output=[]) {
-  if(array.length === 0) {
-    return output;
+var alternateSign = function(array, output=[]) { //create function alternateSign that takes in inputs array and output assigned to an array literal
+  if(array.length === 0) { //determineif length of array is strictly equal to 0
+    return output; // return output
   }
-  output = alternateSign(array.slice(0, array.length - 1));
-  var arrLength = array.length;
-  if(arrLength % 2 === 0) {
-    if(array[arrLength - 1] > 0) {
-      array[arrLength - 1] = -array[arrLength - 1];
+  output = alternateSign(array.slice(0, array.length - 1)); //assign value of output to recursive call of alternateSign with inputs array sliced form its 0 index to its last index
+  var arrLength = array.length; // create variable arrLength and assign it to the length of array
+  if(arrLength % 2 === 0) { //determine if arrLength is even
+    if(array[arrLength - 1] > 0) { //determine if array at last index is greater than 0
+      array[arrLength - 1] = -array[arrLength - 1]; //assign array at last index to negative array at last index
     }
-  } else {
-    if(array[arrLength - 1] < 0) {
-      array[arrLength - 1] = -array[arrLength - 1];
+  } else { //else
+    if(array[arrLength - 1] < 0) { //determine if array at last index is less than 0
+      array[arrLength - 1] = -array[arrLength - 1]; //assign array at last index to negative array at last index
     }
   }
-  output.push(array[arrLength - 1]);
-  return output;
+  output.push(array[arrLength - 1]); //push array at last index to output
+  return output; //return output
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
-  if(str.length === 0){
-    return '';
+var numToText = function(str) { //create a function numToText that takes in an input str
+  if(str.length === 0){ //determine is length of str is strictly equal to 0
+    return ''; //return empty string
   }
-  var newStr = numToText(str.substring(0, str.length - 1));
-  var replace;
-  if(str[str.length - 1] === '1'){
-    replace = 'one';
-  } else if(str[str.length - 1] === '2'){
-    replace = 'two';
-  } else if(str[str.length - 1] === '3'){
-    replace = 'three';
-  } else if(str[str.length - 1] === '4'){
-    replace = 'four';
-  } else if(str[str.length - 1] === '5'){
-    replace = 'five';
-  } else if(str[str.length - 1] === '6'){
-    replace = 'six';
+  var newStr = numToText(str.substring(0, str.length - 1)); // create variable newStr and assign it to recursive call of numToText with input str in a substring from first to last index
+  var replace; //create variable replace
+  if(str[str.length - 1] === '1'){ //determine if str at last index is strictly equal to the string '1'
+    replace = 'one'; //assign value of replace to 'one'
+  } else if(str[str.length - 1] === '2'){  //determine if str at last index is strictly equal to the string '2'
+    replace = 'two'; //assign value of replace to 'two'
+  } else if(str[str.length - 1] === '3'){ //determine if str at last index is strictly equal to the string '3'
+    replace = 'three'; //assign value of replace to 'three'
+  } else if(str[str.length - 1] === '4'){ //determine if str at last index is strictly equal to the string '4'
+    replace = 'four'; //assign value of replace to 'four'
+  } else if(str[str.length - 1] === '5'){ //determine if str at last index is strictly equal to the string '5'
+    replace = 'five'; //assign value of replace to 'five'
+  } else if(str[str.length - 1] === '6'){ //determine if str at last index is strictly equal to the string '6'
+    replace = 'six'; //assign value of replace to 'six'
   } else if(str[str.length - 1] === '7'){
     replace = 'seven';
   } else if(str[str.length - 1] === '8'){
@@ -443,9 +461,9 @@ var numToText = function(str) {
   } else if(str[str.length - 1] === '9'){
     replace = 'nine';
   } else {
-    replace = str[str.length - 1];
+    replace = str[str.length - 1]; // else assign value of replace to last index of str
   }
-  return newStr + replace;
+  return newStr + replace; //return newStr plus replace
 };
 
 // *** EXTRA CREDIT ***

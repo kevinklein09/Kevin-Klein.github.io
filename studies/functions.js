@@ -45,27 +45,33 @@
 
     }
 
-    /* When we invoke a function, we pass in arguments that correspond to the parameters:
+    /* When we invoke a function, we pass in arguments that correspond to the parameters.
+     * Let's declare a simple function:
      */
-
-     function myFunction(1, 2, 3) { // 1, 2, and 3 are all passed in as arguments
-
-     }
-
-     // Let's declare a simple function:
 
      function myMessage (message) {
         console.log(message);
      }
-     // Now let's invoke our function:
+     // Now let's invoke our function and pass in an argument:
+
      myMessage("Hello World!"); // prints => "Hello World!"
 
 // 3. Function Expressions
-     /* Another way to create a function is with the function expression. This is  
-      * 
-      * 
-      * 
-      * 
-      * 
-      * 
+     /* Another way to create a function is with the function expression. A function   
+      * expression can be stored in a variable. After it has been stored in a variable, 
+      * can then be used as a function itself:
       */
+     
+     const x = function(param1, param2) {
+        return param1 + param2; 
+     }
+     let e = x(10, 5);
+     console.log(e); // prints => 15
+
+     /* The above function is an ANONYMOUS FUNCTION because it is declared without a 
+      * name. Anonymous functions do not need names since they are invoked using the 
+      * variable name, as seen above. 
+      */
+
+// 4. Function Input and Return Optionality 
+
