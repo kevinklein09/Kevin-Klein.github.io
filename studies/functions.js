@@ -69,13 +69,25 @@
       console.log(multiplyBy(5)); // prints => 5
       console.log(multiplyBy(5, 10)); // prints = 50
 
-      /** It is also optional to return a value in a function. 
-       * 
-       * 
-       * 
-       * 
+      /* It is also optional to return a value in a function. A function will always return something, 
+       * though. So in these cases, the value returned from functions with a return statement is either
+       * undefined or void. Here's an example: 
        */
-     
+
+      function addByTwo(x) {
+        x + 2;
+      }
+      console.log(addByTwo(2)) // prints => undefined
+
+      /* We can also use functions to log something to the console. Yet when we actually log
+       * the function to the console itself, we will still get a value ofundefined:
+       */
+
+      function messageToYou(name) {
+        console.log("Hello " + name + ", how are you today?")
+      }
+      messageToYou('Kevin'); // logs to the console => 'Hello Kevin, how are you today?'
+      console.log(messageToYou('Kevin')); // both logs to the console => 'Hello Kevin, how are you today?' AND gives us a value of undefined
 
 // 3. Function Expressions
      /* Another way to create a function is with the function expression. A function   
@@ -94,5 +106,5 @@
       * variable name, as seen above. 
       */
 
-// 4. Function Input and Return Optionality 
+// 4. Function Scope
 
