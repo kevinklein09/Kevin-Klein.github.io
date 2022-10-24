@@ -33,8 +33,8 @@
         return num += 2;
     }
     //function invocation:
-    addTwo(10)
-    console.log(addTwo(10)) // prints => 12
+    addTwo(10);
+    console.log(addTwo(10)); // prints => 12
 
     /* The return statement stops the execution of a function and returns a value.
      */
@@ -78,14 +78,14 @@
       function addByTwo(x) {
         x + 2;
       }
-      console.log(addByTwo(2)) // prints => undefined
+      console.log(addByTwo(2)); // prints => undefined
 
       /* We can also use functions to log something to the console. Yet when we actually log
        * the function to the console itself, we will still get a value ofundefined:
        */
 
       function messageToYou(name) {
-        console.log("Hello " + name + ", how are you today?")
+        console.log("Hello " + name + ", how are you today?");
       }
       messageToYou('Kevin'); // logs to the console => 'Hello Kevin, how are you today?'
       console.log(messageToYou('Kevin')); // both logs to the console => 'Hello Kevin, how are you today?' AND gives us a value of undefined
@@ -119,13 +119,18 @@
      /* Each function creates a new scope in Javascript. This means that variables that 
       * are defined inside a function - called local variables - are not visible/accessible 
       * from outside of the function. 
-      * 
-      * 
-      * 
-      * 
       */
 
-     
+     function localScopeVar() { // localScopeVar takes in no parameters
+        var x = 10; // x is a locally scoped variable
+        return x; 
+     }
+     console.log(localScopeVar()); // prints => 10
+     console.log(x); // prints => ReferenceError: x is not defined
+
+// 5. Function Closure
+
+
 
 
 
