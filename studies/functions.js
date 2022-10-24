@@ -8,8 +8,7 @@
  * invoked, a function can take in arguments. Functions can optionally take in parameters
  * and optionally return a single value. 
  * 3: We can assign functions to a variable with function expression. 
- * 4: Functions have scope. 
- * 5: Functions can have closure. 
+ * 4: Functions have scope and can have closure. 
  */
 
 // 1. Function Declaration and Invocation 
@@ -107,7 +106,7 @@
       * variable name, as seen above. 
       */
 
-// 4. Function Scope
+// 4. Function Scope and Closure
      // Functions can see and modify variables in parent or global scopes:
 
     var first = 'Kevin'; // first is a globally scoped variable
@@ -128,7 +127,6 @@
      console.log(localScopeVar()); // prints => 10
      console.log(x); // prints => ReferenceError: x is not defined
 
-// 5. Function Closure
 
 
 
