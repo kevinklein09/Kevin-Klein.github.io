@@ -128,6 +128,20 @@
      console.log(localScopeVar()); // prints => 10
      console.log(x); // prints => ReferenceError: x is not defined
 
+     /* Functions can also have closure. A closure is a function that retains access to an outer
+      * (enclosing) function's varibales, even after the outer function has returned. Here's
+      * an example: 
+      */
+
+     function closureFuncExample() {
+      const myLang = 'Javascript';
+      return () {  // This closure function retains access to the variable myLang
+        console.log(myLang);
+      };
+     }
+
+     const myFavoriteLang = closureFuncExample();
+     myFavoriteLang(); // prints => 'Javascript
 
 
 
