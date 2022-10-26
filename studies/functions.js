@@ -8,7 +8,8 @@
  * invoked, a function can take in arguments. Functions can optionally take in parameters
  * and optionally return a single value. 
  * 3: We can assign functions to a variable with function expression. 
- * 4: Functions have scope and can have closure. 
+ * 4: Functions have scope.
+ * 5: Functions can be nested and can have closure.
  */
 
 // 1. Function Declaration and Invocation 

@@ -26,8 +26,28 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) {
+  //create two arrays to stor rtl values and ltr values
+  let ltr = [];
+  let rtl = [];
+  //iterate through string
+  for(let i = 0; i < string.length; i++) {
+    let code = string.charCodeAt(i);
+    let script = characterScript(code); // will be either an object or null
 
+    if(script !== null) {
+      if(script.direction === 'ltr') {
+        ltr.push(script);
+      } else {
+        rtl.push(script);
+      }
+    }
+  }
+  if(ltr.length > rtl.length) {
+    return 'ltr';
+  } else {
+    return 'rtl';
+  }
 }
 
 // /////////////////////////////////////////////////////////////////////////////
