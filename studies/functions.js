@@ -135,10 +135,10 @@
 
      function closureFuncExample() {
       const myLang = 'Javascript';
-      return () {  // This closure function retains access to the variable myLang
+      return () => { // This closure function retains access to the variable myLang
         console.log(myLang);
       };
-     }
+    }
 
      const myFavoriteLang = closureFuncExample();
      myFavoriteLang(); // prints => 'Javascript
