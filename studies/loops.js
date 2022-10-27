@@ -16,7 +16,7 @@
  */
 
 // 1. For Loops
-    /** A for loop will repeat over and over until a specified condition is evaluated as false. 
+    /* A for loop will repeat over and over until a specified condition is evaluated as false. 
      * They are commonly used to run some code a set number of times. 
      * For loops consist of three optional expressions, followed by a code block. These are:
      * 
@@ -99,3 +99,33 @@
      * 1
      * 0
      */
+
+// 2. For...in Loops
+    /* A for-in loop will iterate over the properties of an object. For each property 
+     * in the object, the code inside the for-in loop code block will be executed. Here
+     * is the syntax:
+     */
+
+    for(variable in object) {
+        //code to execute at each iteration
+    }
+
+    /* Here's an example of a for-in loop that iterates over the properties of an object
+     * and logs its name and value to the console:
+     */
+
+    let animals = {
+        dog: 'Trunks',
+        cat: 'Suki',
+        rabbit: 'Whiskers'
+    }
+
+    for(let key in animals) {
+        console.log(key + ': ' + animals[key]);
+    }
+    /* prints to the console => 
+     * dog: 'Trunks'
+     * cat: 'Suki'
+     * rabbit: 'Whiskers'
+     */
+
