@@ -129,3 +129,30 @@
      * rabbit: 'Whiskers'
      */
 
+// 3. While Loops
+    /* A while loop will execute its code block statements as long as a specified condition 
+     * evaluates to true. If the condition evaluates to false, the code in the code block will
+     * not be executed and the loop ends. The variable used in the condition must be declared and
+     * initialized outside of the while loop. Here's the syntax:
+     */
+
+    while(condition) {
+        // code to execute at each iteration
+    }
+
+    // Here's an example: 
+    let i = 0;
+    
+    while(i < 5) {
+        console.log(i);
+        i++;
+    }
+    /* prints to the console =>
+     * 0
+     * 1
+     * 2
+     * 3
+     * 4
+     */
+    
+
