@@ -70,3 +70,32 @@
      * 0
      */
 
+    // For loops can be used to iterate through an array. Here's an example:
+
+    var myArray = [1, 2, 3, 4, 5];
+
+    for(let i = 0; i <= myArray.length; i++) {
+        console.log(i);
+    }
+    /* prints to the console =>
+     * 0
+     * 1
+     * 2
+     * 3
+     * 4
+     * 5
+     */
+
+    // And here is an example of looping backwards through an array with a for loop:
+
+    for(let i = myArray.length; i >= 0; i--) {
+        console.log(i);
+    }
+    /* prints to the console =>
+     * 5
+     * 4
+     * 3
+     * 2
+     * 1
+     * 0
+     */
