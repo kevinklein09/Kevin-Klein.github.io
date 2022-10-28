@@ -14,8 +14,9 @@
 
 
 // 1. Primitive Data Types
-    /* Also known as primary or built-in data types, primitive data types define immutable values 
-     * represented at the lowest level of Javascript. There are five types of primitive data types:
+    /* Also known as primary or built-in data types, primitive data types define immutable values - 
+     * meaning the existing value cannot be altered - represented at the lowest level of Javascript.
+     * There are five types of primitive data types:
      *
      ** NUMBER
      * The number data type is used to represent positive or negative numbers with or without decimals.
@@ -83,7 +84,8 @@
     console.log(g); // prints => undefined
 
 // 2. Complex Data Types
-    /* Unlike primitive data types, complex data types represent a collection of values, not just a single value. 
+    /* Unlike primitive data types, complex data types represent a collection of values, not just a single value. They are 
+     * mutable, meaning that they can be modified after being creating. There are three complex data types:
      *
      ** OBJECT
      * The object data type allows us to store multiple data collections in a variable. These data collections are 
@@ -130,3 +132,11 @@
 
     var result = displayMessage(newMessage, 'Kevin');
     console.log(result); // prints => 'Hello there, Kevin'
+
+    /* Pass-By-Value and Pass-By-Reference
+        * PASS-BY-VALUE
+        * When a parameter is passed-by-reference
+        * 
+        * 
+        * 
+        */
