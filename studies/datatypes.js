@@ -135,8 +135,34 @@
 
     /* Pass-By-Value and Pass-By-Reference
         * PASS-BY-VALUE
-        * When a parameter is passed-by-reference
-        * 
-        * 
-        * 
+        * With pass-by-value, a function is called by directly passing the value of a variable as an argument. Changes
+        * that are made inside the function do not affect the original value. Parameters that are passed as arguments 
+        * create its own copy - any changes that are made inside of the function are made to the copied value, but not 
+        * to the original value. Here's an example:
         */
+
+       let favFood = 'poboy';
+
+       function exchange(food) {
+        food = 'lasagna';
+        console.log(food); // prints => 'lasagna'
+       }
+
+       exchange(favFood);
+       console.log(favFood); // prints => 'poboy'
+
+       /* PASS-BY-REFERENCE
+        * With pass-by-reference, a function is called by directly passing the reference/address of the variable as an
+        * argument in the function. This means that changing the value inside of the function will also change the original
+        * value. Objects and arrays follow the pass-by-reference property. With pass-by-reference, parameters that are passed 
+        * as arguments do not create their own copy, they refer to the original value. Here's an example:
+        */
+
+       let myShoppingList = ['tea', 'coffee', 'milk', 'bread'];
+
+       function addToList(shoppingList, newItem) {
+            shoppingList.push(newItem);
+       }
+
+       addToList(myShoppingList, 'broccoli');
+       console.log(myShoppingList); // prints => [ 'tea', 'coffee', 'milk', 'bread', 'broccoli' ]
