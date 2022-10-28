@@ -99,7 +99,7 @@
         employed: true
      };
 
-    /* ARRAYS
+    /** ARRAYS
      * An array is a type of object that is used for storing multiple values in a single variable. Each value in an array is 
      * referred to as an element, and each element has a numeric position, known as the index. The array index begins at 0.  
      * Arrays may contain data of any data type, including other arrays or objects. Here's an example of an array:
@@ -108,4 +108,25 @@
     var names = ['Seb', 'Sandy', 'Anton', 'Amadie'];
     console.log(names[0]); // prints => 'Seb'
 
-    
+    /** FUNCTIONS
+     * Functions are callable objects that execute a block of code. It is possible for a function to be stored in variables, 
+     * objects, and arrays. Here's an example of a function stored in a variable: 
+     */
+
+    var message = function() {
+        return 'Hello world!';
+    }
+
+    /* Functions can be passed as arguments to other functions and returned from functions:
+     */
+
+    function newMessage(name){
+        return 'Hello there, ' + name;
+    }
+
+    function displayMessage(messageFunction, userName) {
+        return messageFunction(userName);
+    }
+
+    var result = displayMessage(newMessage, 'Kevin');
+    console.log(result); // prints => 'Hello there, Kevin'
