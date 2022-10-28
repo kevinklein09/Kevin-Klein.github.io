@@ -86,8 +86,26 @@
     /* Unlike primitive data types, complex data types represent a collection of values, not just a single value. 
      *
      ** OBJECT
-     * The object data type allows us to store multiple data collections in a variable. Objects ate the only mutable 
-     * values in Javascript. 
-     * 
-     * 
+     * The object data type allows us to store multiple data collections in a variable. These data collections are 
+     * comprised of properties. Object properties are equivalent to key-value pairs, which can both be added and removed. 
+     * Property keys are either strings or symbols, and property values can be values of any type, including other objects - 
+     * this enables building complex data structures. Here's an example of an object: 
      */
+
+     let profile1 = {
+        firstName: 'Kevin', 
+        lastName: 'Klein',
+        age: 29,
+        employed: true
+     };
+
+    /* ARRAYS
+     * An array is a type of object that is used for storing multiple values in a single variable. Each value in an array is 
+     * referred to as an element, and each element has a numeric position, known as the index. The array index begins at 0.  
+     * Arrays may contain data of any data type, including other arrays or objects. Here's an example of an array:
+     */
+
+    var names = ['Seb', 'Sandy', 'Anton', 'Amadie'];
+    console.log(names[0]); // prints => 'Seb'
+
+    
