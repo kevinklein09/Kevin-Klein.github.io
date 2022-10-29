@@ -58,3 +58,57 @@
         console.log(result); // prints => 13
         let result2 = str7.indexOf('kevin');
         consolelog(result2); // prints => -1
+
+        /** LENGTH
+         * The length method returns the length of a string. Here's an example:
+         */
+
+        let str8 = 'Hello';
+        console.log(str8.length) // prints => 5
+
+        /** SLICE
+         * The slice() method will extract a portion of a string and return the extracted portion in a new string. The 
+         * .slice() method takes in two parameters: start position and end position. While the start parameter is inclusive,
+         * the end parameter is exclusive. Here's an example:
+         */
+
+        let str9 = "Kevin, Eva, Kelsey";
+        let part = str9.slice(7, 10);
+        console.log(part); // prints => 'Eva'
+
+        // If the second parameter is omitted, the method will slice out the rest of the string:
+
+        let part2 = str9.slice(7); 
+        console.log(part2); // prints => 'Eva, Kelsey'
+
+        // If a parameter is negative, the position is counted from the end of the string:
+
+        let part3 = str9.slice(-6) // prints => 'Kelsey'
+
+        /** REPLACE
+         * The replace() method replaces a specified value with another value in a string. It will only replace the first match.
+         * This method is case sensitive. Here's an example:
+         */
+
+        let str10 = 'I am 29 years old!';
+        let myStr = str10.replace('years', 'days');
+        console.log(myStr); // prints => 'I am 29 days old!'
+
+        /* We can use a regular expression with an /i flag to make the replace() method case insensitive:
+         */
+
+        let myStr2 = str10.replace(/YEARS/i, 'days'); // prints => 'I am 29 days old!'
+
+        /* We can use a regular expression with a /g flag to replace all matches:
+         */
+        let str11 = 'I am 29 years old, and she is 67 years old!';
+        let myStr3 = str10.replace(/years/g, 'days'); // prints => 'I am 29 days old, and she is 67 days old!'
+
+        /** REPLACE ALL
+         * The replaceAll() method allows us to specify a regular expression instead of a string to be replaced. If the parameter is
+         * a regular express
+         * 
+         * 
+         * 
+         */
+
