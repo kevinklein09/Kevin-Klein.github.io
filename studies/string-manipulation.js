@@ -114,7 +114,37 @@
         console.log(str12.replaceAll('Cats', 'Dogs')); // prints => 'Birds, Dogs, Alligators, Sheep, Dogs'
         console.log(str12.replaceAll(/Cats/g, 'Dogs')); // prints => 'Birds, Dogs, Alligators, Sheep, Dogs'
 
+        /** TO UPPER CASE
+         * The toUpperCase() method allows us to convert a string to upper case:
+         */
+
+        let str13 = 'hello';
+        console.log(str13.toUpperCase()); // prints => 'HELLO'
+
+        /** TO LOWER CASE
+         * The toLowerCase() method allows us to convert a string to lower case:
+         */
+
+        let str14 = 'HELLO';
+        console.log(str14.toLowerCase()); // prints => 'hello'
+
+        /** TRIM
+         * The trim() method removes whitespaces from both sides of a string:
+         */
+
+        let str15 = '       How are you?         ';
+        console.log(str15.trim()); // prints => 'How are you?'
+
+        /** TRIM START 
+         * The trimStart() method allows us to remove whitespaces only from the start of a string: 
+         */
+
+        console.log(str15.trimStart()); // prints => 'How are you?         '
+
+        /** TRIM END
+         * The trimEnd() method allows us to remove whitespaces only from the end of a string:
+         */
+
+        console.log(str15.trimEnd()) // prints => '       How are you?'
+
         
-
-
-
