@@ -101,14 +101,20 @@
 
         /* We can use a regular expression with a /g flag to replace all matches:
          */
+
         let str11 = 'I am 29 years old, and she is 67 years old!';
         let myStr3 = str10.replace(/years/g, 'days'); // prints => 'I am 29 days old, and she is 67 days old!'
 
         /** REPLACE ALL
          * The replaceAll() method allows us to specify a regular expression instead of a string to be replaced. If the parameter is
-         * a regular express
-         * 
-         * 
-         * 
+         * a regular expression, the flag /g must be included. Here's an example: 
          */
+
+        let str12 = 'Birds, Cats, Alligators, Sheep, Cats';
+        console.log(str12.replaceAll('Cats', 'Dogs')); // prints => 'Birds, Dogs, Alligators, Sheep, Dogs'
+        console.log(str12.replaceAll(/Cats/g, 'Dogs')); // prints => 'Birds, Dogs, Alligators, Sheep, Dogs'
+
+        
+
+
 
