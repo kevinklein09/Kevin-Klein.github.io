@@ -136,15 +136,32 @@
         console.log(str15.trim()); // prints => 'How are you?'
 
         /** TRIM START 
-         * The trimStart() method allows us to remove whitespaces only from the start of a string: 
+         * The trimStart() method removes whitespaces only from the start of a string: 
          */
 
         console.log(str15.trimStart()); // prints => 'How are you?         '
 
         /** TRIM END
-         * The trimEnd() method allows us to remove whitespaces only from the end of a string:
+         * The trimEnd() method removes whitespaces only from the end of a string:
          */
 
-        console.log(str15.trimEnd()) // prints => '       How are you?'
+        console.log(str15.trimEnd()); // prints => '       How are you?'
 
-        
+        /** CHAR AT
+         * The charAt() method returns the character at a specified index in a string:
+         */
+
+        let str16 = 'Kevin';
+        console.log(str16.charAt(0)); // prints => 'K'
+        console.log(str16.charAt(4)); // prints => 'n'
+
+        /** SPLIT
+         * The split() method converts a string into an array. It accepts a parameter, which is referred to as the separator.
+         */
+
+        let str17 = 'Kevin, Eva, Kelsey, Bryan';
+        console.log(str17.split(',')); // splits on commas / prints => [ 'Kevin', ' Eva', ' Kelsey', ' Bryan' ]
+        let str18 = "Operation Spark";
+        console.log(str18.split(' ')); // splits on spaces / prints => [ 'Operation', 'Spark' ]
+        let str19 = 'Kevin';
+        console.log(str19.split('')); // returns an array of single characters in string / prints => [ 'K', 'e', 'v', 'i', 'n' ]
