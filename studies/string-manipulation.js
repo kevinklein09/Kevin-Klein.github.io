@@ -1,4 +1,4 @@
-/** STRING MANIPULATION
+/** STRING MANIPULATION:
  * 
  * 0: In Javascript, strings are used to store data in the form of text. Strings are made up
  * of a sequence of characters that are surrounded by single or double quotes. There are a few
