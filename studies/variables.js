@@ -132,16 +132,10 @@
         myHobby = "Swimming";
         console.log(myHobby); // prints => Swimming
 
-        function blockScoped() {
-            let animal = "dog"; 
-            return animal;
+        for(let i = 0; i < 10; i++) {
+            console.log(i) // prints 1 - 9 to the console
         }
-        console.log(animal); // print => ReferenceError: animal is not defined
-        //similarly, let is block scoped within conditional statement and loop code blocks
-        if(true) {
-            let anotherAnimal = "cat";
-        }
-        console.log(anotherAnimal); // prints => print => ReferenceError: anotherAnimal is not defined
+        console.log(i); // prints => ReferenceError: i is not defined
 
         /** CONST
          * Variables that are declared with the const keyword CANNOT be reassigned and are 
@@ -149,14 +143,13 @@
          * in the fact that they cannot be updated or reassigned. A variable declared with const
          * must be initialized in the same line of code. 
          */
-        const a = 5;
-        function multiply() {
-            a *= 2;
-            return a;
-        }
-        console.log(multiply()); // prints => TypeError: Assignment to constant variable.
-        a = 10;
-        console.log(a); // prints => TypeError: Assignment to constant variable.
+
+
+        if(true) {
+            const y = 10;
+            console.log(y); // prints => 10
+        };
+        console.log(y); // prints => ReferenceError: y is not defined
 
 // 5. Hoisting
         /* We can use our code before it has been declared and/or initialized in Javascript.
